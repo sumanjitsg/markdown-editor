@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './TextEditor.module.css'
 
 type Props = {
-  onChangeHandler: (e: React.ChangeEvent<Element>) => void
+  onChangeHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 function TextEditor({ onChangeHandler }: Props) {

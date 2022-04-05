@@ -10,8 +10,8 @@ function Workspace() {
   const [rawText, setRawText] = useState('');
   const [markedText, setMarkedText] = useState('');
 
-  const handleTextChange = ({ target }: React.ChangeEvent<Element>) => {
-    setRawText((target as HTMLTextAreaElement).value);
+  const handleTextChange = ({ target }: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setRawText(target.value);
     setMarkedText(marked(rawText));
   }
 
