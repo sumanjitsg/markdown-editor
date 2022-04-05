@@ -1,0 +1,10 @@
+.container {
+  height: 100%;
+  display: flex;
+}
+
+.separator {
+  width: 1px;
+  flex: none;
+  background-color: var(--color-gray-500);
+}

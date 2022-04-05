@@ -1,6 +1,8 @@
+import Workspace from './components/Workspace';
+
 function App() {
   return (
-    <h1>Markdown Editor</h1>
+    <Workspace />
   );
 }
 

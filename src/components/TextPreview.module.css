@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-300);
+  font-family: 'Roboto Slab', serif;
+  width: 50%;
+  flex: 1;
+}
