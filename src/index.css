@@ -20,8 +20,7 @@
   margin: 0;
   padding: 0;
   border: none;
-}
 
-.root {
-  height: 100vh;
+  /* fixed: overflow issues from workspace */
+  overflow: hidden;
 }

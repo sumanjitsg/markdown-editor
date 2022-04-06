@@ -7,6 +7,7 @@ import { useRemark } from 'react-remark';
 // Components
 import EditorSection from "./EditorSection";
 import PreviewSection from "./PreviewSection";
+import VerticalSplitter from "../shared-components/VerticalSplitter";
 
 // Styles
 import styles from './Workspace.module.css';
@@ -27,12 +28,8 @@ function Workspace() {
   return (
     <main className={styles.container}>
       <EditorSection onChangeHandler={handleTextChange} />
-
-      <div className={styles.sectionSeparator}></div>
-
-      <PreviewSection>
-        {previewContent}
-      </PreviewSection>
+      <VerticalSplitter />
+      <PreviewSection>{previewContent}</PreviewSection>
     </main>
   )
 }

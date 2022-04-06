@@ -1,3 +1,9 @@
+.verticalSplitter {
+  width: 1px;
+  flex: none;
+  background-color: var(--color-gray-500);
+}
+
 .btn {
   padding: 10px 15px;
   background-color: var(--color-orange-600);
