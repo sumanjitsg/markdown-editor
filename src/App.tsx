@@ -1,9 +1,16 @@
 // Components
-import Workspace from './components/Workspace';
+import Header from './header/Header';
+import Workspace from './workspace/Workspace';
+
+// Styles
+import styles from './App.module.css'
 
 function App() {
   return (
-    <Workspace />
+    <div className={styles.container}>
+      <Header text='Markdown' />
+      <Workspace />
+    </div>
   );
 }
 

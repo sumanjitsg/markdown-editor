@@ -1,0 +1,9 @@
+.btn {
+  padding: 10px 15px;
+  background-color: var(--color-orange-600);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}

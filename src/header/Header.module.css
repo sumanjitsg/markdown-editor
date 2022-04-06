@@ -1,0 +1,17 @@
+.container {
+  flex: initial;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: var(--color-gray-700);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+.headerText {
+  font-family: 'Commissioner', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
