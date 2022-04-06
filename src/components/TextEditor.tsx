@@ -1,4 +1,3 @@
-// Modules
 import React from 'react'
 
 // Styles

@@ -1,5 +1,4 @@
-// Modules
-import React, { ChangeEvent } from "react";
+import React from "react";
 
 // Hooks
 import { useRemark } from 'react-remark';

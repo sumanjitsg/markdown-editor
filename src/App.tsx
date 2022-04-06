@@ -1,3 +1,4 @@
+// Components
 import Workspace from './components/Workspace';
 
 function App() {
