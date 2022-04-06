@@ -12,7 +12,7 @@ import VerticalSplitter from "../shared-components/VerticalSplitter";
 // Styles
 import styles from './Workspace.module.css';
 
-// Type Definitons
+// Types
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>;
 
 function Workspace() {

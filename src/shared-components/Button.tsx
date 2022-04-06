@@ -1,7 +1,7 @@
 // Styles
 import styles from './SharedComponents.module.css'
 
-// Type Definitions
+// Types
 type Props = {
   text: string,
   onClickHandler: React.MouseEventHandler<HTMLButtonElement>

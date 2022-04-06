@@ -7,7 +7,7 @@ import PreviewContent from './PreviewContent';
 // Styles
 import styles from './Workspace.module.css';
 
-// Type Definitons
+// Types
 type Props = {
   children: React.ReactNode
 }

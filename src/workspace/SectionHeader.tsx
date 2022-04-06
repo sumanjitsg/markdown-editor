@@ -1,7 +1,7 @@
 // Styles
 import styles from './Workspace.module.css';
 
-// Type Definitons
+// Types
 type Props = {
   text: string
 }

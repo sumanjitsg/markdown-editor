@@ -1,7 +1,7 @@
 // Styles
 import styles from './Header.module.css'
 
-// Type Definitions
+// Types
 type Props = {
   text: string
 }

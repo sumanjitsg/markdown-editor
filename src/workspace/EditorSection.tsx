@@ -7,7 +7,7 @@ import TextEditor from './TextEditor';
 // Styles
 import styles from './Workspace.module.css';
 
-// Type Definitons
+// Types
 type Props = {
   onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement>
 }

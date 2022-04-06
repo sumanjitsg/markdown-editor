@@ -5,15 +5,16 @@ import HeaderText from './HeaderText'
 // Styles
 import styles from './Header.module.css'
 
-// Type Definitions
+// Types
 type Props = {
   text: string
 };
 
-type handleSave = React.MouseEventHandler<HTMLButtonElement>;
+type BtnMouseEventHandler = React.MouseEventHandler<HTMLButtonElement>;
 
 function Header({ text }: Props) {
-  const handleSave = () => { }
+  const handleSave: BtnMouseEventHandler
+    = () => { }
 
   return (
     <header className={styles.container}>
