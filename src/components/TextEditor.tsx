@@ -1,13 +1,17 @@
+// Modules
 import React from 'react'
-import styles from './TextEditor.module.css'
 
+// Styles
+import styles from './Workspace.module.css'
+
+// Type Definitons
 type Props = {
-  onChangeHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement>
 }
 
 function TextEditor({ onChangeHandler }: Props) {
   return (
-    <form className={styles.container}>
+    <form className={styles.textEditor}>
       <textarea name='text-editor' className={styles.textArea} spellCheck='false' onChange={onChangeHandler}></textarea >
     </form>
   )

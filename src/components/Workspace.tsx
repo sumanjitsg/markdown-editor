@@ -1,25 +1,34 @@
-import React, { useState } from "react";
-import { marked } from 'marked'
+// Modules
+import React, { ChangeEvent } from "react";
 
-import TextEditor from "./TextEditor"
-import TextPreview from "./TextPreview"
+// Hooks
+import { useRemark } from 'react-remark';
 
-import styles from './Workspace.module.css'
+// Components
+import TextEditor from "./TextEditor";
+import TextPreview from "./TextPreview";
+
+// Styles
+import styles from './Workspace.module.css';
+
+// Type Definitons
+type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>;
 
 function Workspace() {
-  const [rawText, setRawText] = useState('');
-  const [markedText, setMarkedText] = useState('');
+  const [markdownText, setMarkdownText] = useRemark();
 
-  const handleTextChange = ({ target }: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setRawText(target.value);
-    setMarkedText(marked(rawText));
-  }
+  const handleTextChange: TextAreaChangeEventHandler
+    = ({ target }) => setMarkdownText(target.value)
 
   return (
-    <main className={styles.container}>
+    <main className={styles.workspace}>
       <TextEditor onChangeHandler={handleTextChange} />
+
       <div className={styles.separator}></div>
-      <TextPreview HTMLText={markedText} />
+
+      <TextPreview>
+        {markdownText}
+      </TextPreview>
     </main>
   )
 }

@@ -1,15 +1,23 @@
+// Modules
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+// Hooks
 import { useState } from 'react'
 
-import styles from './TextPreview.module.css'
+// Styles
+import styles from './Workspace.module.css'
 
+// Type Definitons
 type Props = {
-  HTMLText: string
+  children: React.ReactNode
 }
 
-function TextPreview({ HTMLText }: Props) {
-  // sanitise htmltext
+function TextPreview({ children }: Props) {
   return (
-    <div className={styles.container} dangerouslySetInnerHTML={{ __html: HTMLText }} />
+    <div className={styles.textPreview}>
+      {children}
+    </div>
   )
 }
 
