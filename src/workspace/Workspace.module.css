@@ -22,7 +22,7 @@
   background-color: var(--color-gray-800);
   color: var(--color-gray-300);
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -54,7 +54,7 @@ textarea.textEditor {
   scrollbar-gutter: stable;
 }
 
-.previewContent>* {
+.previewContent > * {
   margin-bottom: 20px;
 }
 
