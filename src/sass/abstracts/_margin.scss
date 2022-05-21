@@ -1,0 +1,157 @@
+@use 'sass:math';
+@use 'typography';
+
+@mixin utilities($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  @include u-margin($start, $end, $step);
+  @include u-margin-x($start, $end, $step);
+  @include u-margin-y($start, $end, $step);
+  @include u-margin-x-start($start, $end, $step);
+  @include u-margin-x-end($start, $end, $step);
+  @include u-margin-y-start($start, $end, $step);
+  @include u-margin-y-end($start, $end, $step);
+}
+
+@mixin u-margin($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .m-#{$current} {
+      margin: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-margin-x($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin-x (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  // init current
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .mx-#{$current} {
+      margin-inline: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-margin-y($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin-y (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .my-#{$current} {
+      margin-block: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-margin-x-start($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin-x-start (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .mx-s-#{$current} {
+      margin-inline-start: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-margin-x-end($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin-x-end (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .mx-e-#{$current} {
+      margin-inline-end: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-margin-y-start($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin-y-start (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .my-s-#{$current} {
+      margin-block-start: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-margin-y-end($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* margin-y-end (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .my-e-#{$current} {
+      margin-block-end: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@function checkParams($start, $end, $step) {
+
+  // check if start <= end
+  @if ($start > $end) {
+    @error 'start should be <= end';
+  }
+
+  // check if step > 0
+  @if ($step <=0) {
+    @error 'step should be > 0';
+  }
+
+  @return 0;
+}

@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 10px;
-  background-color: var(--color-gray-800);
+  background-color: var(--scss-color-gray-900);
   color: var(--color-gray-300);
   font-family: 'Roboto', sans-serif;
   font-weight: 500;

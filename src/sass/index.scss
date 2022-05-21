@@ -1,0 +1,28 @@
+@use 'base';
+@use 'utilities';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    --base-size: 16;
+    --to-rem: var(--base-size) * 1rem;
+    font-size: calc(14 / var(--to-rem));
+  }
+}
+
+@layer utilities {
+  .text-13px {
+    font-size: calc(13 / var(--to-rem));
+  }
+
+  .text-15px {
+    font-size: calc(15 / var(--to-rem));
+  }
+
+  .text-32 {
+    font-size: calc(32 / var(--to-rem));
+  }
+}

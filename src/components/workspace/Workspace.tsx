@@ -7,7 +7,7 @@ import { useRemark } from 'react-remark';
 // Components
 import EditorSection from "./EditorSection";
 import PreviewSection from "./PreviewSection";
-import VerticalSplitter from "../shared-components/VerticalSplitter";
+import VerticalSplitter from "../shared/VerticalSplitter";
 
 // Styles
 import styles from './Workspace.module.css';
@@ -16,22 +16,22 @@ import styles from './Workspace.module.css';
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>;
 
 function Workspace() {
-  const [markdownText, setMarkdownText] = useState('')
-  const [previewContent, setPreviewContent] = useRemark();
+  const [ markdownText, setMarkdownText ] = useState( '' );
+  const [ previewContent, setPreviewContent ] = useRemark();
 
   const handleTextChange: TextAreaChangeEventHandler
-    = ({ target }) => {
-      setMarkdownText(target.value);
-      setPreviewContent(markdownText);
-    }
+    = ( { target } ) => {
+      setMarkdownText( target.value );
+      setPreviewContent( markdownText );
+    };
 
   return (
     <main className={styles.container}>
       <EditorSection onChangeHandler={handleTextChange} />
-      <VerticalSplitter />
-      <PreviewSection>{previewContent}</PreviewSection>
+      {/* <VerticalSplitter />
+      <PreviewSection>{previewContent}</PreviewSection> */}
     </main>
-  )
+  );
 }
 
-export default Workspace
+export default Workspace;

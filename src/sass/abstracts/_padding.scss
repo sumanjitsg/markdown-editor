@@ -1,0 +1,157 @@
+@use 'sass:math';
+@use 'typography';
+
+@mixin utilities($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  @include u-padding($start, $end, $step);
+  @include u-padding-x($start, $end, $step);
+  @include u-padding-y($start, $end, $step);
+  @include u-padding-x-start($start, $end, $step);
+  @include u-padding-x-end($start, $end, $step);
+  @include u-padding-y-start($start, $end, $step);
+  @include u-padding-y-end($start, $end, $step);
+}
+
+@mixin u-padding($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .p-#{$current} {
+      padding: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-padding-x($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding-x (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  // init current
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .px-#{$current} {
+      padding-inline: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-padding-y($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding-y (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .py-#{$current} {
+      padding-block: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-padding-x-start($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding-x-start (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .px-s-#{$current} {
+      padding-inline-start: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-padding-x-end($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding-x-end (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .px-e-#{$current} {
+      padding-inline-end: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-padding-y-start($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding-y-start (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .py-s-#{$current} {
+      padding-block-start: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@mixin u-padding-y-end($start, $end, $step) {
+  // check if params are valid
+  $_: checkParams($start, $end, $step);
+
+  /* padding-y-end (start: #{$start}px, end: #{$end}px), step: #{$step} */
+
+  $current: $start;
+
+  // while start to end
+  @while $current <=$end {
+    .py-e-#{$current} {
+      padding-block-end: #{math.div($current, typography.$base-size)}rem;
+    }
+
+    $current: $current + $step;
+  }
+}
+
+@function checkParams($start, $end, $step) {
+
+  // check if start <= end
+  @if ($start > $end) {
+    @error 'start should be <= end';
+  }
+
+  // check if step > 0
+  @if ($step <=0) {
+    @error 'step should be > 0';
+  }
+
+  @return 0;
+}
