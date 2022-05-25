@@ -1,7 +1,7 @@
 import React from "react";
 
 // Hooks
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRemark } from 'react-remark';
 
 // Components

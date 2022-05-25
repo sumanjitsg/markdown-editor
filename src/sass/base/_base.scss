@@ -1,7 +1,35 @@
+@layer base {
+  body {
+    --base-size: 16;
+    --to-rem: var(--base-size) * 1rem;
+    font-size: calc(14 / var(--to-rem));
+  }
+}
+
 body {
-  background-color: var(--scss-color-gray-1000, black);
-  color: white;
+  --bg-accent: var(--color-orange-400);
+  --text-accent: var(--color-orange-400);
+
+  --bg-workspace: var(--color-gray-1000);
+  --bg-workspace-header: var(--color-gray-900);
+  --text-workspace-header: var(--color-gray-400);
+  --text-primary: var(--color-gray-100);
+  --text-body: var(--color-gray-400);
+
+  // core body defaults
+  background-color: var(--bg-workspace);
+  color: var(--text-primary);
   font-family: var(--font-family-roboto, sans-serif);
   font-weight: 400;
-  line-height: 1.7;
+
+  // for sidebar transform
+  overflow-x: hidden;
+}
+
+.theme-light {
+  --bg-workspace: var(--color-gray-100);
+  --bg-workspace-header: var(--color-gray-200);
+  --text-workspace-header: var(--color-gray-500);
+  --text-primary: var(--color-gray-700);
+  --text-body: var(--color-gray-500);
 }

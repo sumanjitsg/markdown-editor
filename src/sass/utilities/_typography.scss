@@ -1,0 +1,13 @@
+@layer utilities {
+  .text-13px {
+    font-size: calc(13 / var(--to-rem));
+  }
+
+  .text-15px {
+    font-size: calc(15 / var(--to-rem));
+  }
+
+  .text-32 {
+    font-size: calc(32 / var(--to-rem));
+  }
+}

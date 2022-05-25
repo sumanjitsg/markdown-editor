@@ -2,14 +2,22 @@ import { MouseEventHandler, ReactElement } from 'react';
 
 type Props = {
   icon: ReactElement;
-  onClickHandler: MouseEventHandler<HTMLButtonElement>;
+  checked: boolean;
+  onClickHandler: ( value: boolean ) => void;
 };
 
-function MenuToggler( { icon, onClickHandler }: Props ) {
+function MenuToggler( { icon, checked, onClickHandler }: Props ) {
   return (
-    <button className='scss-bg-gray-700 px-4 py-5' onClick={onClickHandler}>
+    <label className='bg-gray-700 px-4 py-5 cursor-pointer w-16 h-16 flex items-center justify-center'>
       {icon}
-    </button>
+      <input
+        className='hidden'
+        type="checkbox"
+        name=""
+        onChange={( { target } ) => onClickHandler( target.checked )}
+        checked={checked}
+      />
+    </label>
   );
 }
 export default MenuToggler;

@@ -3,6 +3,7 @@
 .container {
   flex: auto;
   display: flex;
+  min-height: 100%;
 }
 
 .editorSection,
@@ -11,6 +12,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 }
 
 .sectionHeader {
@@ -19,8 +21,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 10px;
-  background-color: var(--scss-color-gray-900);
-  color: var(--color-gray-300);
+  background-color: var(--bg-workspace-header);
+  color: var(--text-workspace-header);
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
@@ -28,27 +30,27 @@
 }
 
 textarea.textEditor {
-  flex: auto;
+  flex-grow: 1;
   /* no outline. accessibility? */
   outline: none;
   padding: 16px;
   resize: none;
-  background-color: var(--color-gray-900);
+  background-color: var(--bg-workspace);
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   line-height: 1.7;
-  color: var(--color-gray-300);
+  color: var(--text-body);
   overflow: auto;
   scrollbar-gutter: stable;
 }
 
 .previewContent {
-  flex: auto;
-  background-color: var(--color-gray-900);
+  flex-grow: 1;
+  background-color: var(--bg-workspace);
   font-family: 'Roboto Slab', serif;
   font-weight: 400;
   line-height: 1.7;
-  color: var(--color-gray-300);
+  color: var(--text-body);
   padding: 20px;
   overflow: auto;
   scrollbar-gutter: stable;
@@ -58,19 +60,21 @@ textarea.textEditor {
   margin-bottom: 20px;
 }
 
+.previewContent :where(h1, h2, h3, h4, h5, blockquote) {
+  color: var(--text-primary);
+}
+
 .previewContent :where(h1, h3, h4, h5, blockquote) {
   font-weight: 700;
-  color: var(--color-white);
 }
 
 .previewContent h2 {
   font-weight: 300;
-  color: var(--color-white);
 }
 
 .previewContent h6 {
   font-weight: 700;
-  color: var(--color-orange-600);
+  color: var(--text-accent);
 }
 
 .previewContent :where(h1, h2, h3, h4, h5, h6) {
@@ -87,16 +91,16 @@ textarea.textEditor {
 
 .previewContent code {
   font-family: 'Roboto Mono', monospace;
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .previewContent blockquote,
 pre {
-  background-color: var(--color-gray-700);
+  background-color: var(--color-gray-800);
   padding: 25px;
   border-radius: 4px;
 }
 
 .previewContent blockquote {
-  border-left: 4px solid var(--color-orange-600);
+  border-left: 4px solid var(--color-accent);
 }

@@ -1,7 +1,0 @@
-@use 'sass:math';
-
-// convert size from px to rem
-@function rem($size, $base-size: 16) {
-  $size-in-rem: math.div($size, $base-size);
-  @return #{$size-in-rem}rem;
-}

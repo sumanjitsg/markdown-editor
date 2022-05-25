@@ -9,18 +9,18 @@ import styles from './Workspace.module.css';
 
 // Types
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-function PreviewSection({ children }: Props) {
+function PreviewSection( { children }: Props ) {
   return (
     <section className={styles.previewSection}>
-      <SectionHeader text='Preview' />
+      <SectionHeader text='Preview' icon={<></>} />
       <PreviewContent>
         {children}
       </PreviewContent>
     </section>
-  )
+  );
 }
 
-export default PreviewSection
+export default PreviewSection;

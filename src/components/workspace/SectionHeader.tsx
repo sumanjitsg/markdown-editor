@@ -1,15 +1,20 @@
 // Styles
+import { ReactElement } from 'react';
 import styles from './Workspace.module.css';
 
 // Types
 type Props = {
-  text: string
-}
+  text: string;
+  icon: ReactElement;
+};
 
-function SectionHeader({ text }: Props) {
+function SectionHeader( { text, icon }: Props ) {
   return (
-    <header className={styles.sectionHeader}>{text}</header>
-  )
+    <header className={styles.sectionHeader}>
+      {text}
+      {icon}
+    </header>
+  );
 }
 
-export default SectionHeader
+export default SectionHeader;

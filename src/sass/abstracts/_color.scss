@@ -1,19 +1,20 @@
 $colors: (
   'orange': ( //
-    '400': hsl(13, 75%, 58%),
-    '300': hsl(21, 86%, 67%),
+    '400': hsl(13 75% 58%),
+    '300': hsl(21 86% 67%),
   ),
 
   'gray': ( //
-    '1000': hsl(225, 9%, 9%),
-    '900': hsl(216, 8%, 12%),
-    '800': hsl(220, 7%, 18%),
-    '700': hsl(216, 9%, 23%),
-    '600': hsl(216, 8%, 38%),
-    '500': hsl(213, 4%, 51%),
-    '400': hsl(222, 9%, 78%),
-    '300': hsl(0, 0%, 89%),
-    '200': hsl(0, 0%, 96%),
+    '1000': hsl(225 9% 9%),
+    '900': hsl(216 8% 12%),
+    '800': hsl(220 7% 18%),
+    '700': hsl(216 9% 23%),
+    '600': hsl(216 8% 38%),
+    '500': hsl(213 4% 51%),
+    '400': hsl(222 9% 78%),
+    '300': hsl(0 0% 89%),
+    '200': hsl(0 0% 96%),
+    '100': hsl(0 0% 100%),
   ),
 );
 
@@ -24,11 +25,11 @@ $colors: (
   @each $color,
   $shades in $colors {
 
-    /* scss-color-#{$color} */
+    /* color-#{$color} */
     // for each shade
     @each $shade,
     $shade-value in $shades {
-      --scss-color-#{$color}-#{$shade}: #{$shade-value};
+      --color-#{$color}-#{$shade}: #{$shade-value};
     }
   }
 }
@@ -41,18 +42,18 @@ $colors: (
   $shades in $colors {
 
     // for each shade
-    /* scss-text-#{$color} */
+    /* text-#{$color} */
     @each $shade,
     $shade-value in $shades {
 
       // text color
-      .scss-text-#{$color}-#{$shade} {
-        color: var(--scss-color-#{$color}-#{$shade});
+      .text-#{$color}-#{$shade} {
+        color: var(--color-#{$color}-#{$shade});
       }
 
       // background color
-      .scss-bg-#{$color}-#{$shade} {
-        background-color: var(--scss-color-#{$color}-#{$shade});
+      .bg-#{$color}-#{$shade} {
+        background-color: var(--color-#{$color}-#{$shade});
       }
     }
   }
