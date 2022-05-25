@@ -9,20 +9,19 @@ import { ReactComponent as IconMenu } from 'assets/icon-menu.svg';
 import { ReactComponent as IconClose } from 'assets/icon-close.svg';
 
 function App() {
-  const [ darkTheme, setDarkTheme ] = useState( true );
-  const classLightTheme = darkTheme === false ? 'theme-light' : '';
-
+  const [ lightTheme, setLightTheme ] = useState( false );
   const [ showSideBar, setShowSideBar ] = useState( false );
-  const classShowSidebar = showSideBar === true ? 'translate-x-64' : '';
 
   return (
     <div
-      className={`${classLightTheme} ${classShowSidebar} transition-transform`}>
+      className={`${lightTheme && 'theme-light'} 
+      ${showSideBar && 'translate-x-64'}
+      transition-transform`}>
       <Sidebar
         themeToggler={
           <Switch
-            checked={darkTheme}
-            onChangeHandler={setDarkTheme} />
+            checked={lightTheme}
+            onChangeHandler={setLightTheme} />
         } />
       <main
         className='flex flex-col min-h-screen'>

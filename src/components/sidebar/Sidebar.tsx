@@ -67,7 +67,7 @@ function Sidebar( { themeToggler }: Props ) {
         </div>
       </div>
       <div
-        className='flex gap-3'>
+        className='flex gap-3 items-center'>
         <IconDarkMode />
         {themeToggler}
         <IconLightMode />

@@ -1,10 +1,10 @@
 // Styles
-import { ReactElement } from 'react';
+import { ReactElement, ReactText } from 'react';
 import styles from './Workspace.module.css';
 
 // Types
 type Props = {
-  text: string;
+  text: ReactText;
   icon: ReactElement;
 };
 
