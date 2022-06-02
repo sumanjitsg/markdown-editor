@@ -1,17 +1,13 @@
 // Styles
-import styles from './Workspace.module.css';
+import styles from "./Workspace.module.css";
 
 // Types
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 function PreviewContent({ children }: Props) {
-  return (
-    <div className={styles.previewContent}>
-      {children}
-    </div>
-  )
+  return <div className="grow">{children}</div>;
 }
 
-export default PreviewContent
+export default PreviewContent;

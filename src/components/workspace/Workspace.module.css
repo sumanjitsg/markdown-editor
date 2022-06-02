@@ -1,53 +1,20 @@
 /* todo: text sizes from design system */
 
-.container {
-  flex: auto;
-  display: flex;
-  min-height: 100%;
-}
-
-.editorSection,
-.previewSection {
-  width: 50%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
 .sectionHeader {
-  flex: initial;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 10px;
   background-color: var(--bg-workspace-header);
   color: var(--text-workspace-header);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 textarea.textEditor {
-  flex-grow: 1;
-  /* no outline. accessibility? */
-  outline: none;
-  padding: 16px;
-  resize: none;
   background-color: var(--bg-workspace);
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 400;
-  line-height: 1.7;
   color: var(--text-body);
-  overflow: auto;
   scrollbar-gutter: stable;
 }
 
 .previewContent {
   flex-grow: 1;
   background-color: var(--bg-workspace);
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 400;
   line-height: 1.7;
   color: var(--text-body);
@@ -90,7 +57,7 @@ textarea.textEditor {
 }
 
 .previewContent code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   color: var(--text-primary);
 }
 
