@@ -23,7 +23,7 @@ function App({ workspace }: Props) {
     >
       {/* sidebar */}
       <Sidebar
-        toggler={
+        themeToggler={
           <ThemeToggler switchOn={lightTheme} onChangeHandler={setLightTheme} />
         }
       />
@@ -31,7 +31,7 @@ function App({ workspace }: Props) {
       <div className="flex flex-col min-h-screen">
         {/* header */}
         <Header
-          toggler={
+          sidebarToggler={
             <SidebarToggler
               icon={sidebarActive === false ? <IconMenu /> : <IconClose />}
               switchOn={sidebarActive}

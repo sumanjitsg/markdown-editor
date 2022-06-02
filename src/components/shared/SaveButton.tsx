@@ -1,10 +1,8 @@
-import { ReactComponent as IconSave } from 'assets/icon-save.svg';
+import { ReactComponent as IconSave } from "assets/icon-save.svg";
 
 function SaveButton() {
   return (
-    <button
-      className='bg-orange-400 p-3 rounded min-w-max text-15px leading-tight'
-      onClick={() => {}}>
+    <button className="bg-orange-400 p-3 rounded" onClick={() => {}}>
       <IconSave />
     </button>
   );

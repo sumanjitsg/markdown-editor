@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 
 import SaveButton from "components/shared/SaveButton";
 import { ReactComponent as IconDelete } from "assets/icon-delete.svg";
@@ -6,15 +6,16 @@ import DocumentName from "./DocumentName";
 
 // Types
 type Props = {
-  toggler: ReactElement;
+  sidebarToggler: ReactElement;
 };
 
 // Component
-function Header({ toggler }: Props) {
+function Header({ sidebarToggler }: Props) {
   return (
-    <header className="flex bg-gray-800">
-      {toggler}
-      <div className="grow ml-6 mr-2 flex items-center justify-between">
+    <header className="flex">
+      {sidebarToggler}
+
+      <div className="grow pl-6 pr-2 flex items-center justify-between bg-gray-800">
         <DocumentName />
         <div className="flex items-center gap-x-6">
           <button>

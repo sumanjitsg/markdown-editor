@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactElement } from "react";
+import { ReactElement } from "react";
 
 type Props = {
   icon: ReactElement;
