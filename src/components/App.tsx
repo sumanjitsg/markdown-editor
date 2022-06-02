@@ -1,41 +1,48 @@
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
-import Sidebar from "./sidebar/Sidebar";
-import AppHeader from "./header/AppHeader";
-import Workspace from "./workspace/Workspace";
-import Switch from "components/shared/Switch";
-import MenuToggler from "components/shared/MenuToggler";
+import Sidebar from "components/sidebar/Sidebar";
+import Header from "components/header/Header";
+import ThemeToggler from "components/shared/ThemeToggler";
+import SidebarToggler from "components/shared/SidebarToggler";
 import { ReactComponent as IconMenu } from "assets/icon-menu.svg";
 import { ReactComponent as IconClose } from "assets/icon-close.svg";
 
-function App() {
+type Props = {
+  workspace: ReactElement;
+};
+
+function App({ workspace }: Props) {
   const [lightTheme, setLightTheme] = useState(false);
-  const [showSideBar, setShowSideBar] = useState(false);
+  const [sidebarActive, setSidebarActive] = useState(false);
 
   return (
     <div
       className={`${lightTheme ? "theme-light" : ""} 
-      ${showSideBar ? "translate-x-64" : ""}
+      ${sidebarActive ? "translate-x-64" : ""}
       transition-transform`}
     >
+      {/* sidebar */}
       <Sidebar
-        themeToggler={
-          <Switch checked={lightTheme} onChangeHandler={setLightTheme} />
+        toggler={
+          <ThemeToggler switchOn={lightTheme} onChangeHandler={setLightTheme} />
         }
       />
-      <main className="flex flex-col min-h-screen">
-        <AppHeader
-          sideBarSwitch={
-            <MenuToggler
-              icon={showSideBar === false ? <IconMenu /> : <IconClose />}
-              checked={showSideBar}
-              onClickHandler={setShowSideBar}
+
+      <div className="flex flex-col min-h-screen">
+        {/* header */}
+        <Header
+          toggler={
+            <SidebarToggler
+              icon={sidebarActive === false ? <IconMenu /> : <IconClose />}
+              switchOn={sidebarActive}
+              onChangeHandler={setSidebarActive}
             />
           }
-          text="Markdown"
         />
-        <Workspace />
-      </main>
+
+        {/* workspace */}
+        {workspace}
+      </div>
     </div>
   );
 }
