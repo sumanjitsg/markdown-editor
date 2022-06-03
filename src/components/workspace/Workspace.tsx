@@ -1,31 +1,19 @@
-import React from "react";
-
-// Hooks
 import { useState } from "react";
 import { useRemark } from "react-remark";
 
-// Components
-import EditorSection from "./EditorSection";
-import PreviewSection from "./PreviewSection";
+import Markdown from "components/workspace/Markdown";
+import Preview from "components/workspace/Preview";
 import { ReactComponent as IconShowPreview } from "assets/icon-show-preview.svg";
 import { ReactComponent as IconHidePreview } from "assets/icon-hide-preview.svg";
-import VerticalSplitter from "../shared/VerticalSplitter";
-
-// Types
-type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>;
+import VerticalSplitter from "components/shared/VerticalSplitter";
 
 function Workspace() {
   const [markdownText, setMarkdownText] = useState("");
   const [previewContent, setPreviewContent] = useRemark();
 
-  const handleTextChange: TextAreaChangeEventHandler = ({ target }) => {
-    setMarkdownText(target.value);
-    setPreviewContent(markdownText);
-  };
-
   const [showPreview, setShowPreview] = useState(false);
 
-  const ShowPreview = () => {
+  const ShowPreviewButton = () => {
     return (
       <button
         onClick={() => {
@@ -37,10 +25,9 @@ function Workspace() {
     );
   };
 
-  const HidePreview = () => {
+  const HidePreviewButton = () => {
     return (
       <button
-        className="relative"
         onClick={() => {
           setShowPreview(false);
         }}
@@ -51,33 +38,47 @@ function Workspace() {
   };
 
   return (
-    <section className="flex grow">
-      <EditorSection
-        showPreviewState={showPreview}
-        showPreview={
-          <div className="lg:hidden">
-            <ShowPreview />
-          </div>
-        }
-        onChangeHandler={handleTextChange}
-      />
-      {!showPreview && <VerticalSplitter />}
-      <PreviewSection
-        showPreviewState={showPreview}
-        hidePreview={
-          <div>
-            <div className={`hidden ${!showPreview ? "lg:block" : ""}`}>
-              <ShowPreview />
+    <main className="flex grow">
+      <div className={`${showPreview === true ? "w-0" : "w-full lg:w-1/2"}`}>
+        <Markdown
+          viewToggler={
+            <div className="lg:hidden">
+              <ShowPreviewButton />
             </div>
-            <div className={`${!showPreview ? "lg:hidden" : ""}`}>
-              <HidePreview />
+          }
+          content={markdownText}
+          onChangeHandler={(content: string) => {
+            setMarkdownText(content);
+            setPreviewContent(content);
+          }}
+        />
+      </div>
+
+      {!showPreview && (
+        <div className="hidden lg:block">
+          <VerticalSplitter />
+        </div>
+      )}
+
+      <div className={`${showPreview === true ? "w-full" : "w-0 lg:w-1/2"}`}>
+        <Preview
+          viewToggler={
+            <div>
+              <div
+                className={`hidden ${showPreview === false ? "lg:block" : ""}`}
+              >
+                <ShowPreviewButton />
+              </div>
+
+              <div className={`${showPreview === false ? "lg:hidden" : ""}`}>
+                <HidePreviewButton />
+              </div>
             </div>
-          </div>
-        }
-      >
-        {previewContent}
-      </PreviewSection>
-    </section>
+          }
+          content={previewContent}
+        />
+      </div>
+    </main>
   );
 }
 

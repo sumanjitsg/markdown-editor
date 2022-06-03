@@ -2,7 +2,7 @@
 import styles from "./SharedComponents.module.css";
 
 function VerticalSplitter() {
-  return <div className={`hidden lg:block ${styles.verticalSplitter}`}></div>;
+  return <div className={`w-px min-h-full ${styles.verticalSplitter}`}></div>;
 }
 
 export default VerticalSplitter;

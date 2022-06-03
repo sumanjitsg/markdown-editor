@@ -17,9 +17,9 @@ function App({ workspace }: Props) {
 
   return (
     <div
-      className={`${lightTheme ? "theme-light" : ""} 
-      ${sidebarActive ? "translate-x-64" : ""}
-      transition-transform`}
+      className={`${lightTheme ? "theme-light" : ""} ${
+        sidebarActive ? "translate-x-64" : ""
+      } transition-transform`}
     >
       {/* sidebar */}
       <Sidebar
