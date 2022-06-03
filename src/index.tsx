@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 // Components
 import App from "components/app/App";
 import Workspace from "components/workspace/Workspace";
+import Splitter from "components/workspace/Splitter";
 import reportWebVitals from "./reportWebVitals";
 
 // Styles
@@ -11,7 +12,17 @@ import "./styles/index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App workspace={<Workspace />} />
+    <App
+      workspace={
+        <Workspace
+          splitter={
+            <div className="hidden lg:block">
+              <Splitter />
+            </div>
+          }
+        />
+      }
+    />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import { useRemark } from "react-remark";
 
 import Markdown from "./Markdown";
 import Preview from "./Preview";
 import ShowPreviewButton from "./ShowPreviewButton";
 import HidePreviewButton from "./HidePreviewButton";
-import Splitter from "./Splitter";
 
-function Workspace() {
+type Props = {
+  splitter: ReactElement;
+};
+
+function Workspace({ splitter }: Props) {
   const [markdownText, setMarkdownText] = useState("");
   const [previewContent, setPreviewContent] = useRemark();
 
@@ -32,11 +35,7 @@ function Workspace() {
       </div>
 
       {/* Splitter */}
-      {!showPreview && (
-        <div className="hidden lg:block">
-          <Splitter />
-        </div>
-      )}
+      {!showPreview && splitter}
 
       {/* Preview */}
       <div className={`${showPreview === true ? "w-full" : "w-0 lg:w-1/2"}`}>
