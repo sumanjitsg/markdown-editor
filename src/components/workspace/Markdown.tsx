@@ -18,7 +18,7 @@ function Markdown({ viewToggler, content, onChangeHandler }: Props) {
 
       <textarea
         name="markdown-text"
-        className={`w-full grow outline-none resize-none p-4 bg-gray-1000 text-gray-400 font-roboto-mono leading-relaxed scrollbar-stable ${styles.workspace}`}
+        className={`w-full grow outline-none resize-none p-4 font-roboto-mono leading-relaxed scrollbar-stable ${styles.workspace}`}
         spellCheck="false"
         value={content}
         onChange={({ target }) => {

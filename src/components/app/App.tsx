@@ -3,7 +3,7 @@ import { ReactElement, useState } from "react";
 import Sidebar from "components/sidebar/Sidebar";
 import Header from "components/header/Header";
 import ThemeToggler from "components/shared/ThemeToggler";
-import SidebarToggler from "./SidebarToggler";
+import SidebarToggler from "components/shared/SidebarToggler";
 import { ReactComponent as IconMenu } from "assets/icon-menu.svg";
 import { ReactComponent as IconClose } from "assets/icon-close.svg";
 
