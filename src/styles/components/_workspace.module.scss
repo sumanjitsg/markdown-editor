@@ -1,18 +1,25 @@
-/* todo: text sizes from design system */
+@use "styles/vendors/_tw-components"; // fixes tailwind component directive not found error
 
-.sectionHeader {
-  background-color: var(--bg-workspace-header);
-  color: var(--text-workspace-header);
-}
+@layer components {
+  .splitter {
+    background-color: var(--bg-splitter);
+  }
 
-textarea.textEditor {
-  background-color: var(--bg-workspace);
-  color: var(--text-body);
-  scrollbar-gutter: stable;
+  .header {
+    background-color: var(--bg-workspace-header);
+  }
+
+  .headingText {
+    color: var(--text-workspace-header);
+  }
+
+  .workspace {
+    background-color: var(--bg-workspace);
+    color: var(--text-body);
+  }
 }
 
 .previewContent {
-  flex-grow: 1;
   background-color: var(--bg-workspace);
   font-family: "Roboto Slab", serif;
   font-weight: 400;
@@ -20,7 +27,6 @@ textarea.textEditor {
   color: var(--text-body);
   padding: 20px;
   overflow: auto;
-  scrollbar-gutter: stable;
 }
 
 .previewContent > * {

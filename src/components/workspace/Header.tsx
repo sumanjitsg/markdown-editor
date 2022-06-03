@@ -1,5 +1,6 @@
-// Styles
 import { ReactElement, ReactText } from "react";
+
+import styles from "styles/components/_workspace.module.scss";
 
 // Types
 type Props = {
@@ -9,8 +10,12 @@ type Props = {
 
 function Header({ headingText, viewToggler }: Props) {
   return (
-    <header className="flex items-center justify-between py-4 px-3 bg-gray-900 h-11">
-      <h2 className="uppercase font-medium leading-none tracking-[.14em] text-gray-400">
+    <header
+      className={`flex items-center justify-between py-4 px-3 h-11 ${styles.header}`}
+    >
+      <h2
+        className={`uppercase font-medium leading-none tracking-[.14em] ${styles.headingText}`}
+      >
         {headingText}
       </h2>
 

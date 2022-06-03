@@ -21,6 +21,7 @@ body {
   --text-workspace-header: var(--color-gray-400);
   --text-primary: var(--color-gray-100);
   --text-body: var(--color-gray-400);
+  --bg-splitter: var(--color-gray-500);
 
   // for sidebar transform
   overflow-x: hidden;
@@ -32,4 +33,5 @@ body {
   --text-workspace-header: var(--color-gray-500);
   --text-primary: var(--color-gray-700);
   --text-body: var(--color-gray-500);
+  --bg-splitter: var(--color-gray-300);
 }

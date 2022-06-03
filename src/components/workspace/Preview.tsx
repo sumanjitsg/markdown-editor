@@ -2,6 +2,8 @@ import { ReactElement } from "react";
 
 import Header from "components/workspace/Header";
 
+import styles from "styles/components/_workspace.module.scss";
+
 // Types
 type Props = {
   viewToggler: ReactElement;
@@ -13,7 +15,9 @@ function Preview({ viewToggler, content }: Props) {
     <section className="flex flex-col min-h-full">
       <Header headingText="Preview" viewToggler={viewToggler} />
 
-      <div className="grow">{content}</div>
+      <div className={`grow scrollbar-stable ${styles.workspace}`}>
+        {content}
+      </div>
     </section>
   );
 }

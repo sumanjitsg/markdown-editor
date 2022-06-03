@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Components
-import App from "components/App";
+import App from "components/app/App";
 import Workspace from "components/workspace/Workspace";
 import reportWebVitals from "./reportWebVitals";
 
 // Styles
-import "./sass/index.scss";
+import "./styles/index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
