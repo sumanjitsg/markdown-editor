@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Components
-import App from "components/app/App";
-import Workspace from "components/workspace/Workspace";
-import Splitter from "components/workspace/Splitter";
+import App from "components/App";
+import Workspace from "components/Workspace";
+import Splitter from "components/Workspace/Splitter";
 import reportWebVitals from "./reportWebVitals";
 
 // Styles

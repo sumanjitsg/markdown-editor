@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import Header from "components/workspace/Header";
+import Header from "components/Workspace/Header";
 
 import styles from "styles/components/_workspace.module.scss";
 

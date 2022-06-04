@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 
-import Sidebar from "components/sidebar/Sidebar";
-import Header from "components/header/Header";
+import Sidebar from "components/Sidebar";
+import Header from "components/Header";
 import ThemeToggler from "components/shared/ThemeToggler";
 import SidebarToggler from "components/shared/SidebarToggler";
 import { ReactComponent as IconMenu } from "assets/icon-menu.svg";
