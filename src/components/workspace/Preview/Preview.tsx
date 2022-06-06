@@ -7,7 +7,7 @@ import styles from "styles/components/_workspace.module.scss";
 // Types
 type Props = {
   viewToggler: ReactElement;
-  content: ReactElement | null;
+  content?: ReactElement | null;
 };
 
 function Preview({ viewToggler, content }: Props) {

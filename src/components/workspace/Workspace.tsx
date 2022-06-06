@@ -3,8 +3,8 @@ import { useRemark } from "react-remark";
 
 import Markdown from "./Markdown";
 import Preview from "./Preview";
-import ShowPreviewButton from "./ShowPreviewButton";
-import HidePreviewButton from "./HidePreviewButton";
+import ShowPreviewButton from "./Header/ShowPreviewButton";
+import HidePreviewButton from "./Header/HidePreviewButton";
 
 type Props = {
   splitter: ReactElement;

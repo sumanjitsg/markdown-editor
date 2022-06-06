@@ -1,6 +1,6 @@
 import { ReactElement, useState } from "react";
 
-import Sidebar from "components/Sidebar";
+import Sidebar from "./Sidebar";
 import Header from "components/Header";
 import ThemeToggler from "components/shared/ThemeToggler";
 import SidebarToggler from "components/shared/SidebarToggler";
