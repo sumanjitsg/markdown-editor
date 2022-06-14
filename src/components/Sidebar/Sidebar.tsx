@@ -1,13 +1,17 @@
 import { ReactElement } from "react";
+import { useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import NewDocumentButton from "components/shared/NewDocumentButton";
+import type { RootState } from "store";
 
 type Props = {
   themeToggler: ReactElement;
 };
 
 function Sidebar({ themeToggler }: Props) {
+  const { filename } = useSelector((state: RootState) => state.metadata);
+
   return (
     <aside className="px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col w-64 -translate-x-64">
       <div className="grow">
@@ -30,9 +34,7 @@ function Sidebar({ themeToggler }: Props) {
               <h3 className="font-light text-13px leading-tight text-gray-500">
                 01 April 2022
               </h3>
-              <p className="mt-1 text-15px leading-tight">
-                untitled-document.md
-              </p>
+              <p className="mt-1 text-15px leading-tight">{filename}.md</p>
             </div>
           </div>
           <div className="mt-6">
