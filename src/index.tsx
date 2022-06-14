@@ -5,6 +5,10 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Workspace from "components/Workspace";
 import Splitter from "components/Workspace/Splitter";
+
+import { Provider } from "react-redux";
+import { store } from "store";
+
 import reportWebVitals from "./reportWebVitals";
 
 // Styles
@@ -12,17 +16,19 @@ import "./styles/index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App
-      workspace={
-        <Workspace
-          splitter={
-            <div className="hidden lg:block">
-              <Splitter />
-            </div>
-          }
-        />
-      }
-    />
+    <Provider store={store}>
+      <App
+        workspace={
+          <Workspace
+            splitter={
+              <div className="hidden lg:block">
+                <Splitter />
+              </div>
+            }
+          />
+        }
+      />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
