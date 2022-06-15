@@ -30,7 +30,6 @@ export const metadataSlice = createSlice({
     updateDocumentMetadata: (
       state,
       action: {
-        type: string;
         payload: {
           id: number;
           // todo: define data type above, used in state type as well
@@ -51,16 +50,24 @@ export const metadataSlice = createSlice({
         return state;
       }
     },
-    changeActiveDocument: (
-      state,
-      // todo: is type prop required?
-      action: { type: string; payload: { id: number } }
-    ) => {
+    deleteDocument: (state, action: { payload: { id: number } }) => {
+      const { [action.payload.id]: deletedDocument, ...documentMap } =
+        state.documentMap;
+
+      return {
+        ...state,
+        documentMap: documentMap,
+        documentIdList: state.documentIdList.filter(
+          (id) => id !== action.payload.id
+        ),
+      };
+    },
+    changeActiveDocument: (state, action: { payload: { id: number } }) => {
       return { ...state, activeDocumentId: action.payload.id };
     },
   },
 });
 
-export const { updateDocumentMetadata, changeActiveDocument } =
+export const { updateDocumentMetadata, deleteDocument, changeActiveDocument } =
   metadataSlice.actions;
 export default metadataSlice.reducer;

@@ -5,7 +5,7 @@ import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import { ReactComponent as IconDelete } from "assets/icon-delete.svg";
 import SaveButton from "components/shared/SaveButton";
 import { RootState } from "store";
-import { updateDocumentMetadata } from "features/metadataSlice";
+import { updateDocumentMetadata, deleteDocument } from "features/metadataSlice";
 
 // Types
 type Props = {
@@ -73,7 +73,12 @@ function Header({ sidebarToggler }: Props) {
 
         <div className="flex items-center gap-x-6">
           {/* delete document button */}
-          <button>
+          {/* todo: change active doc on delete, if last document, do something */}
+          <button
+            onClick={() => {
+              dispatch(deleteDocument({ id: documentId }));
+            }}
+          >
             <IconDelete />
             {/* save document button */}
           </button>
