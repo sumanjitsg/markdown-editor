@@ -1,16 +1,21 @@
-import { ReactElement } from "react";
-import { useSelector } from "react-redux";
+import { ReactElement, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import NewDocumentButton from "components/shared/NewDocumentButton";
+
 import type { RootState } from "store";
+import { changeActiveDocument } from "features/metadataSlice";
 
 type Props = {
   themeToggler: ReactElement;
 };
 
 function Sidebar({ themeToggler }: Props) {
-  const { filename } = useSelector((state: RootState) => state.metadata);
+  const { documentMap, documentIdList } = useSelector(
+    (state: RootState) => state.metadata
+  );
+  const dispatch = useDispatch();
 
   return (
     <aside className="px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col w-64 -translate-x-64">
@@ -27,28 +32,26 @@ function Sidebar({ themeToggler }: Props) {
           <NewDocumentButton />
         </div>
 
-        <div className="mt-6">
-          <div className="flex items-center gap-x-4">
-            <IconDocument className="shrink-0" />
-            <div>
-              <h3 className="font-light text-13px leading-tight text-gray-500">
-                01 April 2022
-              </h3>
-              <p className="mt-1 text-15px leading-tight">{filename}.md</p>
-            </div>
-          </div>
-          <div className="mt-6">
-            <div className="flex items-center gap-x-4">
+        <ul className="mt-6 space-y-6">
+          {documentIdList.map((documentId) => (
+            <li className="flex items-center gap-x-4" key={documentId}>
               <IconDocument className="shrink-0" />
               <div>
                 <h3 className="font-light text-13px leading-tight text-gray-500">
-                  01 April 2022
+                  {documentMap[documentId]?.createdOn}
                 </h3>
-                <p className="mt-1 text-15px leading-tight">welcome.md</p>
+                <button
+                  className="mt-1 text-15px leading-tight"
+                  onClick={() =>
+                    dispatch(changeActiveDocument({ id: documentId }))
+                  }
+                >
+                  {documentMap[documentId]?.documentName}
+                </button>
               </div>
-            </div>
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {themeToggler}

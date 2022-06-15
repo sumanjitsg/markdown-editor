@@ -1,17 +1,66 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+type State = {
+  documentMap: {
+    [documentId: number]: { documentName: string; createdOn: string };
+  };
+  activeDocumentId: number;
+  documentIdList: number[];
+};
+
+const initialState: State = {
+  documentMap: {
+    1: {
+      documentName: "untitled-document.md",
+      createdOn: "01-April-2022",
+    },
+    2: {
+      documentName: "welcome.md",
+      createdOn: "01-April-2022",
+    },
+  },
+  activeDocumentId: 2,
+  documentIdList: [1, 2],
+};
+
 export const metadataSlice = createSlice({
   name: "metadata",
-  initialState: {
-    filename: "untitled-document",
-    createdOn: "01-April-2022",
-  },
+  initialState: initialState,
   reducers: {
-    setFileName: (state, action: PayloadAction<string>) => {
-      state.filename = action.payload;
+    updateDocumentMetadata: (
+      state,
+      action: {
+        type: string;
+        payload: {
+          id: number;
+          // todo: define data type above, used in state type as well
+          data: { documentName: string; createdOn: string };
+        };
+      }
+    ) => {
+      // if document id exists
+      if (state.documentMap[action.payload.id] !== undefined) {
+        return {
+          ...state,
+          documentMap: {
+            ...state.documentMap,
+            [action.payload.id]: action.payload.data,
+          },
+        };
+      } else {
+        return state;
+      }
+    },
+    changeActiveDocument: (
+      state,
+      // todo: is type prop required?
+      action: { type: string; payload: { id: number } }
+    ) => {
+      return { ...state, activeDocumentId: action.payload.id };
     },
   },
 });
 
-export const { setFileName } = metadataSlice.actions;
+export const { updateDocumentMetadata, changeActiveDocument } =
+  metadataSlice.actions;
 export default metadataSlice.reducer;
