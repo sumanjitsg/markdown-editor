@@ -27,6 +27,35 @@ export const metadataSlice = createSlice({
   name: "metadata",
   initialState: initialState,
   reducers: {
+    createDocument: (state) => {
+      const newDocument: { documentName: string; createdOn: string } = {
+        documentName: "untitled-document.md",
+        createdOn: Intl.DateTimeFormat("en-GB", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })
+          .format(new Date())
+          .split(" ")
+          .join("-"),
+      };
+
+      const newDocumentId =
+        state.documentIdList[0] !== undefined ? state.documentIdList[0] - 1 : 1;
+
+      const newDocumentMap = {
+        ...state.documentMap,
+        [newDocumentId]: newDocument,
+      };
+
+      const newDocumentIdList = [newDocumentId, ...state.documentIdList];
+
+      return {
+        ...state,
+        documentMap: newDocumentMap,
+        documentIdList: newDocumentIdList,
+      };
+    },
     updateDocumentMetadata: (
       state,
       action: {
@@ -68,6 +97,10 @@ export const metadataSlice = createSlice({
   },
 });
 
-export const { updateDocumentMetadata, deleteDocument, changeActiveDocument } =
-  metadataSlice.actions;
+export const {
+  createDocument,
+  updateDocumentMetadata,
+  deleteDocument,
+  changeActiveDocument,
+} = metadataSlice.actions;
 export default metadataSlice.reducer;
