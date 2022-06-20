@@ -1,24 +1,24 @@
-import { ReactElement } from "react";
+import { ReactComponent as IconMenu } from "assets/icon-menu.svg";
+import { ReactComponent as IconClose } from "assets/icon-close.svg";
 
 type Props = {
-  icon: ReactElement;
-  switchOn: boolean;
-  onChangeHandler: (value: boolean) => void;
+  sidebarExpanded: boolean;
+  toggleExpandedState: () => void;
 };
 
-function SidebarToggler({ icon, switchOn, onChangeHandler }: Props) {
+function SidebarToggler({ sidebarExpanded, toggleExpandedState }: Props) {
   return (
-    <label className="bg-gray-700 px-4 py-5 cursor-pointer w-16 h-16 flex items-center justify-center">
-      {icon}
-      <input
-        className="sr-only"
-        type="checkbox"
-        name="sidebar"
-        onChange={({ target }) => onChangeHandler(target.checked)}
-        checked={switchOn}
-        value="active"
-      />
-    </label>
+    // todo: label tooltip
+    <button
+      aria-label="Expand Sidebar"
+      aria-expanded={sidebarExpanded ? "true" : "false"}
+      className="bg-gray-700 px-4 py-5 w-16 h-16 flex items-center justify-center hover:bg-orange-400 focus:bg-orange-400 focus:outline-white"
+      onClick={() => {
+        toggleExpandedState();
+      }}
+    >
+      {sidebarExpanded === false ? <IconMenu /> : <IconClose />}
+    </button>
   );
 }
 export default SidebarToggler;

@@ -46,6 +46,18 @@ $colors: (
       .bg-#{$color}-#{$shade} {
         background-color: var(--color-#{$color}-#{$shade});
       }
+
+      // caret color
+      /* caret-#{$color} utilities */
+      .caret-#{$color}-#{$shade} {
+        caret-color: var(--color-#{$color}-#{$shade});
+      }
+
+      // fill color
+      /* fill-#{$color} utilities */
+      .fill-#{$color}-#{$shade} {
+        fill: var(--color-#{$color}-#{$shade});
+      }
     }
   }
 }

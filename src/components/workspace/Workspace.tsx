@@ -19,7 +19,7 @@ function Workspace({ splitter }: Props) {
   return (
     <main className="flex grow">
       {/* Markdown */}
-      <div className={`${showPreview === true ? "w-0" : "w-full lg:w-1/2"}`}>
+      <div className={`${showPreview === true ? "hidden" : "w-full lg:w-1/2"}`}>
         <Markdown
           viewToggler={
             <div className="flex flex-col items-center justify-center lg:hidden">
@@ -38,7 +38,11 @@ function Workspace({ splitter }: Props) {
       {!showPreview && splitter}
 
       {/* Preview */}
-      <div className={`${showPreview === true ? "w-full" : "w-0 lg:w-1/2"}`}>
+      <div
+        className={`${
+          showPreview === true ? "w-full" : "hidden lg:block lg:w-1/2"
+        }`}
+      >
         <Preview
           viewToggler={
             <div className="">

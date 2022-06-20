@@ -7,6 +7,8 @@ import SaveButton from "components/shared/SaveButton";
 import { RootState } from "store";
 import { updateDocumentMetadata, deleteDocument } from "features/metadataSlice";
 
+import styles from "styles/components/Header/IconDelete.module.scss";
+
 // Types
 type Props = {
   sidebarToggler: ReactElement;
@@ -43,43 +45,42 @@ function Header({ sidebarToggler }: Props) {
         {/* active document name */}
         <div className="flex items-center gap-x-4">
           <IconDocument />
-          <div>
-            <h3 className="font-light text-13px leading-tight text-gray-500 hidden lg:block">
+          <label>
+            <div className="font-light text-13px leading-tight text-gray-500 sr-only lg:not-sr-only">
               Document Name
-            </h3>
-            {/* todo: add sr-only label */}
-            <label>
-              <input
-                type="text"
-                value={documentName}
-                className="bg-gray-800 mt-1 text-15px leading-tight focus:outline-none focus:border-b"
-                onChange={(e) => {
-                  onChangeHandler(e.currentTarget.value);
-                }}
-                onKeyDown={(e) => {
-                  if (e.code === "Enter") {
-                    dispatch(
-                      updateDocumentMetadata({
-                        id: documentId,
-                        data: { ...documentMeta, documentName: documentName },
-                      })
-                    );
-                  }
-                }}
-              />
-            </label>
-          </div>
+            </div>
+            <input
+              type="text"
+              value={documentName}
+              className="bg-gray-800 mt-1 text-15px leading-tight caret-orange-400 hover:border-b focus:outline-none focus:border-b"
+              onChange={(e) => {
+                onChangeHandler(e.currentTarget.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.code === "Enter") {
+                  dispatch(
+                    updateDocumentMetadata({
+                      id: documentId,
+                      data: { ...documentMeta, documentName: documentName },
+                    })
+                  );
+                }
+              }}
+            />
+          </label>
         </div>
 
-        <div className="flex items-center gap-x-6">
+        <div className="flex items-center gap-x-4">
           {/* delete document button */}
           {/* todo: change active doc on delete, if last document, do something */}
           <button
+            aria-label="Delete active document"
+            className="w-10 h-10 flex items-center justify-center"
             onClick={() => {
               dispatch(deleteDocument({ id: documentId }));
             }}
           >
-            <IconDelete />
+            <IconDelete className={styles.iconDelete} />
             {/* save document button */}
           </button>
           <SaveButton />

@@ -35,3 +35,7 @@ body {
   --text-body: var(--color-gray-500);
   --bg-splitter: var(--color-gray-300);
 }
+
+svg {
+  outline: none;
+}

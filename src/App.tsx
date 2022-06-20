@@ -4,8 +4,6 @@ import Sidebar from "components/Sidebar";
 import Header from "components/Header";
 import ThemeToggler from "components/shared/ThemeToggler";
 import SidebarToggler from "components/shared/SidebarToggler";
-import { ReactComponent as IconMenu } from "assets/icon-menu.svg";
-import { ReactComponent as IconClose } from "assets/icon-close.svg";
 
 type Props = {
   workspace: ReactElement;
@@ -13,12 +11,12 @@ type Props = {
 
 function App({ workspace }: Props) {
   const [lightTheme, setLightTheme] = useState(false);
-  const [sidebarActive, setSidebarActive] = useState(false);
+  const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
   return (
     <div
       className={`${lightTheme ? "theme-light" : ""} ${
-        sidebarActive ? "translate-x-64" : ""
+        sidebarExpanded ? "translate-x-64" : ""
       } transition-transform`}
     >
       {/* sidebar */}
@@ -33,9 +31,10 @@ function App({ workspace }: Props) {
         <Header
           sidebarToggler={
             <SidebarToggler
-              icon={sidebarActive === false ? <IconMenu /> : <IconClose />}
-              switchOn={sidebarActive}
-              onChangeHandler={setSidebarActive}
+              sidebarExpanded={sidebarExpanded}
+              toggleExpandedState={() =>
+                setSidebarExpanded((sidebarExpanded) => !sidebarExpanded)
+              }
             />
           }
         />

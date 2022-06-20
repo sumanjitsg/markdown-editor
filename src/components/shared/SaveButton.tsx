@@ -1,10 +1,12 @@
 import { ReactComponent as IconSave } from "assets/icon-save.svg";
-import { blob } from "stream/consumers";
+
+import styles from "styles/components/Header/SaveButton.module.scss";
 
 function SaveButton() {
   return (
     <button
-      className="bg-orange-400 p-3 rounded"
+      aria-label="Save active document"
+      className={`w-10 h-10 flex items-center justify-center rounded bg-orange-400 hover:bg-orange-300 focus:bg-orange-300`}
       onClick={() => {
         const text = "# test text";
         // text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.

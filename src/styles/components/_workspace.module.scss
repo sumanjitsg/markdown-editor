@@ -1,22 +1,18 @@
-@use "styles/vendors/_tw-components"; // fixes tailwind component directive not found error
+.splitter {
+  background-color: var(--bg-splitter);
+}
 
-@layer components {
-  .splitter {
-    background-color: var(--bg-splitter);
-  }
+.header {
+  background-color: var(--bg-workspace-header);
+}
 
-  .header {
-    background-color: var(--bg-workspace-header);
-  }
+.headingText {
+  color: var(--text-workspace-header);
+}
 
-  .headingText {
-    color: var(--text-workspace-header);
-  }
-
-  .workspace {
-    background-color: var(--bg-workspace);
-    color: var(--text-body);
-  }
+.workspace {
+  background-color: var(--bg-workspace);
+  color: var(--text-body);
 }
 
 .previewContent {

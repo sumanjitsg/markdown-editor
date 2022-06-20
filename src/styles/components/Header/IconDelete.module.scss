@@ -1,0 +1,7 @@
+.iconDelete {
+  fill: var(--color-gray-500);
+}
+
+button:where(:hover, :focus) .iconDelete {
+  fill: var(--color-orange-400);
+}
