@@ -2,7 +2,7 @@ import { ReactElement, useState } from "react";
 
 import Sidebar from "components/Sidebar";
 import Header from "components/Header";
-import ThemeToggler from "components/shared/ThemeToggler";
+import ThemeSwitch from "components/shared/ThemeSwitch";
 import SidebarToggler from "components/shared/SidebarToggler";
 
 type Props = {
@@ -20,9 +20,16 @@ function App({ workspace }: Props) {
       } transition-transform`}
     >
       {/* sidebar */}
+      {/* todo: try switch theme with invert */}
       <Sidebar
-        themeToggler={
-          <ThemeToggler switchOn={lightTheme} onChangeHandler={setLightTheme} />
+        expanded={sidebarExpanded}
+        themeSwitch={
+          <ThemeSwitch
+            label={"Application light color theme"}
+            pressed={lightTheme}
+            tabbable={sidebarExpanded}
+            onToggleHandler={() => setLightTheme((lightTheme) => !lightTheme)}
+          />
         }
       />
 
@@ -33,7 +40,11 @@ function App({ workspace }: Props) {
             <SidebarToggler
               sidebarExpanded={sidebarExpanded}
               toggleExpandedState={() =>
-                setSidebarExpanded((sidebarExpanded) => !sidebarExpanded)
+                setSidebarExpanded((sidebarExpanded) => {
+                  if (sidebarExpanded === false) {
+                  }
+                  return !sidebarExpanded;
+                })
               }
             />
           }

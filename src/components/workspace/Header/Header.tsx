@@ -11,7 +11,7 @@ type Props = {
 function Header({ headingText, viewToggler }: Props) {
   return (
     <header
-      className={`flex items-center justify-between py-4 px-3 h-11 ${styles.header}`}
+      className={`flex items-center justify-between py-4 pl-3 pr-2 h-11 ${styles.header}`}
     >
       <h2
         className={`uppercase font-medium leading-none tracking-[.14em] ${styles.headingText}`}

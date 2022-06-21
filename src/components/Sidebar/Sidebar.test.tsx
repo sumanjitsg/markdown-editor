@@ -2,14 +2,15 @@ import { render, screen } from "@testing-library/react";
 import Sidebar from "./Sidebar";
 
 test('Sidebar has heading with text "Markdown"', () => {
-  render(<Sidebar themeToggler={<></>} />);
+  // is expanded = false rendered fine? should it have default value? any implication on availability of child elements in collapsed mode?
+  render(<Sidebar expanded={false} themeSwitch={<></>} />);
 
   const headingMarkdown = screen.getByRole(/heading/i, { name: /Markdown/ });
   expect(headingMarkdown).toBeInTheDocument();
 });
 
 test('Sidebar has heading with text "My Documents"', () => {
-  render(<Sidebar themeToggler={<></>} />);
+  render(<Sidebar expanded={false} themeSwitch={<></>} />);
 
   const headingMyDocuments = screen.getByRole(/heading/i, {
     name: /My Documents/,
@@ -18,7 +19,7 @@ test('Sidebar has heading with text "My Documents"', () => {
 });
 
 test('Sidebar has button with text "+ New Document"', () => {
-  render(<Sidebar themeToggler={<></>} />);
+  render(<Sidebar expanded={false} themeSwitch={<></>} />);
 
   const newDocumentButton = screen.getByRole(/button/i, {
     name: /\+ New Document/i,
