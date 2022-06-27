@@ -4,7 +4,7 @@ import { useRemark } from "react-remark";
 
 import Header from "components/Workspace/Header";
 
-import styles from "styles/components/_workspace.module.scss";
+import styles from "styles/components/Workspace/_preview.module.scss";
 
 import { RootState } from "store";
 
@@ -31,7 +31,9 @@ function Preview({ viewToggler }: Props) {
     <section className="flex flex-col min-h-full">
       <Header headingText="Preview" viewToggler={viewToggler} />
 
-      <div className={`grow scrollbar-stable ${styles.workspace}`}>
+      <div
+        className={`grow scrollbar-stable px-5 pt-4 font-roboto-slab font-normal leading-[1.7] ${styles.previewContent}`}
+      >
         {previewContent}
       </div>
     </section>
