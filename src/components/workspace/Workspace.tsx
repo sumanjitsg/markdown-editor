@@ -1,5 +1,4 @@
 import { ReactElement, useState } from "react";
-import { useRemark } from "react-remark";
 
 import Markdown from "./Markdown";
 import Preview from "./Preview";
@@ -11,9 +10,6 @@ type Props = {
 };
 
 function Workspace({ splitter }: Props) {
-  const [markdownText, setMarkdownText] = useState("");
-  const [previewContent, setPreviewContent] = useRemark();
-
   const [showPreview, setShowPreview] = useState(false);
 
   return (
@@ -26,11 +22,6 @@ function Workspace({ splitter }: Props) {
               <ShowPreviewButton onClickHandler={() => setShowPreview(true)} />
             </div>
           }
-          content={markdownText}
-          onChangeHandler={(content: string) => {
-            setMarkdownText(content);
-            setPreviewContent(content);
-          }}
         />
       </div>
 
@@ -69,7 +60,6 @@ function Workspace({ splitter }: Props) {
               </div>
             </div>
           }
-          content={previewContent}
         />
       </div>
     </main>

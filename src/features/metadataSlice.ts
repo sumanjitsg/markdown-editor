@@ -1,8 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 type State = {
   documentMap: {
     [documentId: number]: { documentName: string; createdOn: string };
+  };
+  documentContentMap: {
+    [documentId: number]: string;
   };
   activeDocumentId: number;
   documentIdList: number[];
@@ -18,6 +21,10 @@ const initialState: State = {
       documentName: "welcome.md",
       createdOn: "01-April-2022",
     },
+  },
+  documentContentMap: {
+    1: "",
+    2: "",
   },
   activeDocumentId: 2,
   documentIdList: [1, 2],
@@ -48,11 +55,17 @@ export const metadataSlice = createSlice({
         [newDocumentId]: newDocument,
       };
 
+      const newDocumentContentMap = {
+        [newDocumentId]: "",
+        ...state.documentContentMap,
+      };
+
       const newDocumentIdList = [newDocumentId, ...state.documentIdList];
 
       return {
         ...state,
         documentMap: newDocumentMap,
+        documentContentMap: newDocumentContentMap,
         documentIdList: newDocumentIdList,
       };
     },
@@ -79,13 +92,40 @@ export const metadataSlice = createSlice({
         return state;
       }
     },
+    updateDocumentContent: (
+      state,
+      action: {
+        payload: {
+          id: number;
+          content: string;
+        };
+      }
+    ) => {
+      if (state.documentContentMap[action.payload.id] !== undefined) {
+        return {
+          ...state,
+          documentContentMap: {
+            ...state.documentContentMap,
+            [action.payload.id]: action.payload.content,
+          },
+        };
+      } else {
+        return state;
+      }
+    },
     deleteDocument: (state, action: { payload: { id: number } }) => {
-      const { [action.payload.id]: deletedDocument, ...documentMap } =
+      const { [action.payload.id]: deletedDocument, ...newDocumentMap } =
         state.documentMap;
+
+      const {
+        [action.payload.id]: deletedDocumentContent,
+        ...newDocumentContentMap
+      } = state.documentContentMap;
 
       return {
         ...state,
-        documentMap: documentMap,
+        documentMap: newDocumentMap,
+        documentContentMap: newDocumentContentMap,
         documentIdList: state.documentIdList.filter(
           (id) => id !== action.payload.id
         ),
@@ -100,6 +140,7 @@ export const metadataSlice = createSlice({
 export const {
   createDocument,
   updateDocumentMetadata,
+  updateDocumentContent,
   deleteDocument,
   changeActiveDocument,
 } = metadataSlice.actions;
