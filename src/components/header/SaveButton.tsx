@@ -1,8 +1,11 @@
 import { ReactComponent as IconSave } from "assets/icon-save.svg";
-
 import styles from "styles/components/Header/SaveButton.module.scss";
 
-function SaveButton() {
+type Props = {
+  onClick: () => void;
+};
+
+function SaveButton({ onClick }: Props) {
   return (
     <button
       aria-label="Save active document"

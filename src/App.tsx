@@ -2,8 +2,8 @@ import { ReactElement, useState } from "react";
 
 import Sidebar from "components/Sidebar";
 import Header from "components/Header";
-import ThemeSwitch from "components/shared/ThemeSwitch";
-import SidebarToggler from "components/shared/SidebarToggler";
+import ThemeSwitch from "components/Sidebar/ThemeSwitch";
+import SidebarSwitch from "components/Header/SidebarSwitch";
 
 type Props = {
   workspace: ReactElement;
@@ -37,8 +37,8 @@ function App({ workspace }: Props) {
       <div className="flex flex-col min-h-screen">
         {/* header */}
         <Header
-          sidebarToggler={
-            <SidebarToggler
+          sidebarToggle={
+            <SidebarSwitch
               sidebarExpanded={sidebarExpanded}
               toggleExpandedState={() =>
                 setSidebarExpanded((sidebarExpanded) => {

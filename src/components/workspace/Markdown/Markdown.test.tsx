@@ -11,6 +11,6 @@ test('Markdown header text "Markdown"', () => {
     </Provider>
   );
 
-  const headingMarkdown = screen.getByRole(/heading/i, { name: /Markdown/i });
+  const headingMarkdown = screen.getByRole("heading", { name: /Markdown/i });
   expect(headingMarkdown).toBeInTheDocument();
 });

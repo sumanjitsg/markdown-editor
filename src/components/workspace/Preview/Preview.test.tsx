@@ -11,6 +11,6 @@ test('Preview header text "Preview"', () => {
     </Provider>
   );
 
-  const headingPreview = screen.getByRole(/heading/i, { name: /Preview/i });
+  const headingPreview = screen.getByRole("heading", { name: /Preview/i });
   expect(headingPreview).toBeInTheDocument();
 });

@@ -6,7 +6,7 @@ type Props = {
   toggleExpandedState: () => void;
 };
 
-function SidebarToggler({ sidebarExpanded, toggleExpandedState }: Props) {
+function SidebarToggle({ sidebarExpanded, toggleExpandedState }: Props) {
   return (
     // todo: label tooltip
     <button
@@ -21,4 +21,4 @@ function SidebarToggler({ sidebarExpanded, toggleExpandedState }: Props) {
     </button>
   );
 }
-export default SidebarToggler;
+export default SidebarToggle;

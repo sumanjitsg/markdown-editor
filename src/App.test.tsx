@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "store";
 
 describe("App", () => {
-  test('should expand Sidebar on clicking "sidebar control" button', async () => {
+  test("should expand sidebar on clicking sidebar expand button", async () => {
     // render app
     render(
       <Provider store={store}>

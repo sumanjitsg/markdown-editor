@@ -2,7 +2,7 @@ import { ReactElement, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
-import NewDocumentButton from "components/shared/NewDocumentButton";
+import NewDocumentButton from "components/Sidebar/NewDocumentButton";
 
 import type { RootState } from "store";
 import { changeActiveDocument } from "features/metadataSlice";
