@@ -32,7 +32,7 @@ function Preview({ viewToggler }: Props) {
       <Header headingText="Preview" viewToggler={viewToggler} />
 
       <div
-        className={`grow scrollbar-stable px-5 pt-4 font-roboto-slab font-normal leading-[1.7] ${styles.previewContent}`}
+        className={`grow h-0 overflow-auto px-5 py-4 font-roboto-slab font-normal leading-[1.7] ${styles.previewContent}`}
       >
         {previewContent}
       </div>
