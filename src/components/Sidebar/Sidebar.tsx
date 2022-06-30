@@ -21,7 +21,13 @@ function Sidebar({ expanded, themeSwitch }: Props) {
   // todo: focus trapping and focus back to sidebar control button on pressing Esc
 
   return (
-    <aside className="px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col w-64 -translate-x-64">
+    <aside
+      data-testid="sidebar"
+      className={`px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col w-64 -translate-x-64 ${
+        !expanded ? "invisible" : ""
+      }`}
+      // style={!expanded ? {visibility: 'hidden'}: undefined}
+    >
       <div className="grow">
         <h1 className="uppercase font-commissioner font-bold text-15px leading-tight tracking-[.33em]">
           Markdown
@@ -35,7 +41,7 @@ function Sidebar({ expanded, themeSwitch }: Props) {
         </h2>
 
         <div className="mt-7">
-          <NewDocumentButton focused={expanded} tabbable={expanded} />
+          <NewDocumentButton focused={expanded} />
         </div>
 
         <ul aria-labelledby="myDocumentsText" className="mt-6 space-y-6">
@@ -47,14 +53,10 @@ function Sidebar({ expanded, themeSwitch }: Props) {
                   {documentMap[documentId]?.createdOn}
                 </p>
                 <button
-                  tabIndex={expanded === false ? -1 : 0}
                   className="mt-1 text-15px leading-tight"
                   onClick={() =>
                     dispatch(changeActiveDocument({ id: documentId }))
                   }
-                  onKeyDown={(e) => {
-                    console.log(e);
-                  }}
                 >
                   {documentMap[documentId]?.documentName}
                 </button>

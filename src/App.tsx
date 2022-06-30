@@ -15,6 +15,7 @@ function App({ workspace }: Props) {
 
   return (
     <div
+      data-testid="app"
       className={`${lightTheme ? "theme-light" : ""} ${
         sidebarExpanded ? "translate-x-64" : ""
       } transition-transform`}

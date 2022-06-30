@@ -38,8 +38,7 @@ function Markdown({ viewToggler }: Props) {
       <Header headingText="Markdown" viewToggler={viewToggler} />
 
       <textarea
-        name="markdown-text"
-        className={`w-full grow outline-none resize-none p-4 font-roboto-mono leading-relaxed scrollbar-stable ${styles.workspace}`}
+        className={`w-full grow outline-none resize-none p-4 font-roboto-mono leading-relaxed ${styles.workspace}`}
         spellCheck="false"
         value={markdownText}
         onChange={({ target }) => {
