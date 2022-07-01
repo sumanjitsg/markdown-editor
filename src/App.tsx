@@ -3,7 +3,7 @@ import { ReactElement, useState } from "react";
 import Sidebar from "components/Sidebar";
 import Header from "components/Header";
 import ColorThemeSwitch from "components/Sidebar/ColorThemeSwitch";
-import SidebarExpandSwitch from "components/Sidebar/SidebarExpandSwitch";
+import SidebarSwitch from "components/Sidebar/SidebarSwitch";
 
 type Props = {
   workspace: ReactElement;
@@ -26,7 +26,7 @@ function App({ workspace }: Props) {
       <Sidebar
         expanded={sidebarExpanded}
         expandSwitch={
-          <SidebarExpandSwitch
+          <SidebarSwitch
             pressed={sidebarExpanded}
             onToggle={() => {
               setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
@@ -35,7 +35,6 @@ function App({ workspace }: Props) {
         }
         colorThemeSwitch={
           <ColorThemeSwitch
-            label={"Application light color theme"}
             pressed={colorTheme === "light"}
             onToggle={() =>
               setColorTheme((colorTheme) =>

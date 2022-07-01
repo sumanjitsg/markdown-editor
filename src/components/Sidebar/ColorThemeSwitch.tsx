@@ -3,17 +3,16 @@ import { ReactComponent as IconLightMode } from "assets/icon-light-mode.svg";
 import { ReactText } from "react";
 
 type Props = {
-  label: string;
   pressed: boolean;
   onToggle: () => void;
 };
 
-function ColorThemeSwitch({ label, pressed, onToggle }: Props) {
+function ColorThemeSwitch({ pressed, onToggle }: Props) {
   return (
     <div className="flex gap-3 items-center">
       <IconDarkMode />
       <button
-        aria-label={label}
+        aria-label={"Application color theme"}
         aria-pressed={pressed}
         onClick={() => onToggle()}
         className="w-12 h-6 bg-gray-600 rounded-2xl relative"

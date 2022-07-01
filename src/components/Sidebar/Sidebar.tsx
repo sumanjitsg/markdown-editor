@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";

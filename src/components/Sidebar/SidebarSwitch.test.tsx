@@ -1,4 +1,4 @@
-import SidebarExpandSwitch from "./SidebarExpandSwitch";
+import SidebarSwitch from "./SidebarSwitch";
 
 describe("Sidebar switch", () => {
   test.todo("should be a /sidebar toggle/ button");
