@@ -5,24 +5,17 @@ import { ReactText } from "react";
 type Props = {
   label: string;
   pressed: boolean;
-  tabbable?: boolean;
-  onToggleHandler: () => void;
+  onToggle: () => void;
 };
 
-function ThemeSwitch({
-  label,
-  pressed,
-  tabbable = true,
-  onToggleHandler,
-}: Props) {
+function ColorThemeSwitch({ label, pressed, onToggle }: Props) {
   return (
     <div className="flex gap-3 items-center">
       <IconDarkMode />
       <button
         aria-label={label}
         aria-pressed={pressed}
-        tabIndex={tabbable ? 0 : -1}
-        onClick={() => onToggleHandler()}
+        onClick={() => onToggle()}
         className="w-12 h-6 bg-gray-600 rounded-2xl relative"
       >
         <span
@@ -34,4 +27,4 @@ function ThemeSwitch({
     </div>
   );
 }
-export default ThemeSwitch;
+export default ColorThemeSwitch;

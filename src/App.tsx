@@ -2,21 +2,22 @@ import { ReactElement, useState } from "react";
 
 import Sidebar from "components/Sidebar";
 import Header from "components/Header";
-import ThemeSwitch from "components/Sidebar/ThemeSwitch";
-import SidebarSwitch from "components/Header/SidebarSwitch";
+import ColorThemeSwitch from "components/Sidebar/ColorThemeSwitch";
+import SidebarExpandSwitch from "components/Sidebar/SidebarExpandSwitch";
 
 type Props = {
   workspace: ReactElement;
 };
 
 function App({ workspace }: Props) {
-  const [lightTheme, setLightTheme] = useState(false);
+  const [colorTheme, setColorTheme] = useState<"dark" | "light">("dark");
+
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
   return (
     <div
       data-testid="app"
-      className={`${lightTheme ? "theme-light" : ""} ${
+      className={`${colorTheme === "light" ? "theme-light" : ""} ${
         sidebarExpanded ? "translate-x-64" : ""
       } transition-transform`}
     >
@@ -24,33 +25,30 @@ function App({ workspace }: Props) {
       {/* todo: try switch theme with invert */}
       <Sidebar
         expanded={sidebarExpanded}
-        themeSwitch={
-          <ThemeSwitch
+        expandSwitch={
+          <SidebarExpandSwitch
+            pressed={sidebarExpanded}
+            onToggle={() => {
+              setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
+            }}
+          />
+        }
+        colorThemeSwitch={
+          <ColorThemeSwitch
             label={"Application light color theme"}
-            pressed={lightTheme}
-            tabbable={sidebarExpanded}
-            onToggleHandler={() => setLightTheme((lightTheme) => !lightTheme)}
+            pressed={colorTheme === "light"}
+            onToggle={() =>
+              setColorTheme((colorTheme) =>
+                colorTheme === "dark" ? "light" : "dark"
+              )
+            }
           />
         }
       />
 
       <div className="flex flex-col min-h-screen">
         {/* header */}
-        <Header
-          sidebarToggle={
-            <SidebarSwitch
-              sidebarExpanded={sidebarExpanded}
-              toggleExpandedState={() =>
-                setSidebarExpanded((sidebarExpanded) => {
-                  if (sidebarExpanded === false) {
-                  }
-                  return !sidebarExpanded;
-                })
-              }
-            />
-          }
-        />
-
+        <Header />
         {/* workspace */}
         {workspace}
       </div>

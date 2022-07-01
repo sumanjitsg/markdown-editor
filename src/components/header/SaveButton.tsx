@@ -1,14 +1,10 @@
 import { ReactComponent as IconSave } from "assets/icon-save.svg";
 import styles from "styles/components/Header/SaveButton.module.scss";
 
-type Props = {
-  onClick: () => void;
-};
-
-function SaveButton({ onClick }: Props) {
+function SaveButton() {
   return (
     <button
-      aria-label="Save active document"
+      aria-label="Download active document"
       className={`w-10 h-10 flex items-center justify-center rounded bg-orange-400 hover:bg-orange-300 focus:bg-orange-300`}
       onClick={() => {
         const text = "# test text";

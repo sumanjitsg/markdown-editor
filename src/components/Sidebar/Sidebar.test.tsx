@@ -9,7 +9,11 @@ describe("Sidebar", () => {
     // is expanded = false rendered fine? should it have default value? any implication on availability of child elements in collapsed mode?
     render(
       <Provider store={store}>
-        <Sidebar expanded={false} themeSwitch={<></>} />
+        <Sidebar
+          expanded={false}
+          expandSwitch={<></>}
+          colorThemeSwitch={<></>}
+        />
       </Provider>
     );
 
@@ -20,7 +24,11 @@ describe("Sidebar", () => {
   test("should have a /my documents/ heading text", () => {
     render(
       <Provider store={store}>
-        <Sidebar expanded={false} themeSwitch={<></>} />
+        <Sidebar
+          expanded={false}
+          expandSwitch={<></>}
+          colorThemeSwitch={<></>}
+        />
       </Provider>
     );
 
@@ -33,7 +41,11 @@ describe("Sidebar", () => {
   test("should have a /new document/ button", () => {
     render(
       <Provider store={store}>
-        <Sidebar expanded={false} themeSwitch={<></>} />
+        <Sidebar
+          expanded={false}
+          expandSwitch={<></>}
+          colorThemeSwitch={<></>}
+        />
       </Provider>
     );
 

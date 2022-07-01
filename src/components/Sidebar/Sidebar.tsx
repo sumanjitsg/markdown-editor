@@ -9,10 +9,11 @@ import { changeActiveDocument } from "features/metadataSlice";
 
 type Props = {
   expanded: boolean;
-  themeSwitch: ReactElement;
+  expandSwitch: ReactElement;
+  colorThemeSwitch: ReactElement;
 };
 
-function Sidebar({ expanded, themeSwitch }: Props) {
+function Sidebar({ expanded, expandSwitch, colorThemeSwitch }: Props) {
   const { documentMap, documentIdList } = useSelector(
     (state: RootState) => state.metadata
   );
@@ -23,12 +24,13 @@ function Sidebar({ expanded, themeSwitch }: Props) {
   return (
     <aside
       data-testid="sidebar"
-      className={`px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col w-64 -translate-x-64 ${
-        !expanded ? "invisible" : ""
-      }`}
-      // style={!expanded ? {visibility: 'hidden'}: undefined}
+      className={`px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col w-64 -translate-x-64`}
     >
-      <div className="grow">
+      <div className="absolute top-0 right-0 translate-x-full">
+        {expandSwitch}
+      </div>
+
+      <div className={`grow ${!expanded ? "invisible" : ""}`}>
         <h1 className="uppercase font-commissioner font-bold text-15px leading-tight tracking-[.33em]">
           Markdown
         </h1>
@@ -66,7 +68,7 @@ function Sidebar({ expanded, themeSwitch }: Props) {
         </ul>
       </div>
 
-      {themeSwitch}
+      <div className={!expanded ? "invisible" : ""}>{colorThemeSwitch}</div>
     </aside>
   );
 }
