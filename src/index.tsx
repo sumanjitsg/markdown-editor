@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 // Components
 import App from "./App";
@@ -14,7 +14,10 @@ import reportWebVitals from "./reportWebVitals";
 // Styles
 import "./styles/index.scss";
 
-ReactDOM.render(
+// todo: avoid ! if possible
+const root = createRoot(document.getElementById("root")!);
+
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App
@@ -29,8 +32,7 @@ ReactDOM.render(
         }
       />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
