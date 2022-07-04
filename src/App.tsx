@@ -27,8 +27,8 @@ function App({ workspace }: Props) {
         expanded={sidebarExpanded}
         expandSwitch={
           <SidebarSwitch
-            pressed={sidebarExpanded}
-            onToggle={() => {
+            expanded={sidebarExpanded}
+            onClick={() => {
               setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
             }}
           />
