@@ -1,5 +1,4 @@
 import { ReactComponent as IconSave } from "assets/icon-save.svg";
-import styles from "styles/components/Header/SaveButton.module.scss";
 
 function SaveButton() {
   return (

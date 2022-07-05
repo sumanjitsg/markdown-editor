@@ -1,6 +1,5 @@
 import { ReactComponent as IconDarkMode } from "assets/icon-dark-mode.svg";
 import { ReactComponent as IconLightMode } from "assets/icon-light-mode.svg";
-import { ReactText } from "react";
 
 type Props = {
   pressed: boolean;

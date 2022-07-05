@@ -1,5 +1,3 @@
-import { ReactElement } from "react";
-
 import DocumentName from "./DocumentName";
 import DeleteButton from "./DeleteButton";
 import SaveButton from "components/Header/SaveButton";
