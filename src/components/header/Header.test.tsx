@@ -5,11 +5,12 @@ import Header from "./Header";
 
 describe("Header", () => {
   test.todo("should contain a /markdown/ heading text");
+  test.todo("should contain a sidebar expand switch");
   test("should contain a document name textbox", () => {
     // render header
     render(
       <Provider store={store}>
-        <Header />
+        <Header sidebarExpandSwitch={<></>} />
       </Provider>
     );
 
@@ -22,7 +23,7 @@ describe("Header", () => {
     // render header
     render(
       <Provider store={store}>
-        <Header />
+        <Header sidebarExpandSwitch={<></>} />
       </Provider>
     );
 
@@ -35,7 +36,7 @@ describe("Header", () => {
     // render header
     render(
       <Provider store={store}>
-        <Header />
+        <Header sidebarExpandSwitch={<></>} />
       </Provider>
     );
 

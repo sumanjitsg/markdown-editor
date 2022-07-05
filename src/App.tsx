@@ -29,16 +29,8 @@ function App({ workspace }: Props) {
       <Suspense fallback={null}>
         <Sidebar
           expanded={sidebarExpanded}
-          expandSwitch={
-            <SidebarSwitch
-              expanded={sidebarExpanded}
-              onClick={() => {
-                setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
-              }}
-            />
-          }
           colorThemeSwitch={
-            <Suspense fallback={null}>
+            <Suspense fallback={<div className="h-6"></div>}>
               <ColorThemeSwitch
                 pressed={colorTheme === "light"}
                 onToggle={() =>
@@ -54,7 +46,16 @@ function App({ workspace }: Props) {
 
       <div className="flex flex-col min-h-screen">
         {/* header */}
-        <Header />
+        <Header
+          sidebarExpandSwitch={
+            <SidebarSwitch
+              expanded={sidebarExpanded}
+              onClick={() => {
+                setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
+              }}
+            />
+          }
+        />
         {/* workspace */}
         {workspace}
       </div>

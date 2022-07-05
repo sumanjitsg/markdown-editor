@@ -32,6 +32,7 @@ function DocumentName() {
         </div>
         <input
           type="text"
+          size={10}
           value={documentName}
           className="bg-gray-800 mt-1 text-15px leading-tight caret-orange-400 hover:border-b focus:outline-none focus:border-b"
           onChange={(e) => {
