@@ -38,6 +38,7 @@ function Markdown({ viewToggler }: Props) {
       <Header headingText="Markdown" viewToggler={viewToggler} />
 
       <textarea
+        aria-label="Markdown editor"
         className={`w-full grow outline-none resize-none p-4 font-roboto-mono leading-relaxed ${styles.workspace}`}
         spellCheck="false"
         value={markdownText}
