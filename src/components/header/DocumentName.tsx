@@ -3,25 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import { RootState } from "store";
-import { updateDocumentMetadata } from "features/metadataSlice";
+import { updateDocumentName } from "features/metadataSlice";
 
 function DocumentName() {
   // todo: documentMap[id] can be undefined for current doc id
-  const { documentId, documentMeta } = useSelector((state: RootState) => {
-    return {
-      documentId: state.metadata.activeDocumentId,
-      documentMeta: state.metadata.documentMap[state.metadata.activeDocumentId],
-    };
-  });
+  const { documentName } = useSelector(
+    (state: RootState) =>
+      state.metadata.documentMap[state.metadata.activeDocumentId]
+  );
   const dispatch = useDispatch();
 
-  const [documentName, setDocumentName] = useState("");
+  const [textboxValue, setTextboxValue] = useState("");
 
   useEffect(() => {
-    setDocumentName(
-      (documentName) => documentMeta?.documentName ?? documentName
-    );
-  }, [documentMeta]);
+    setTextboxValue((textboxValue) => documentName ?? textboxValue);
+  }, [documentName]);
 
   return (
     <div className="flex items-center gap-x-4">
@@ -33,17 +29,16 @@ function DocumentName() {
         <input
           type="text"
           size={10}
-          value={documentName}
+          value={textboxValue}
           className="bg-gray-800 mt-1 text-15px leading-tight caret-orange-400 hover:border-b focus:outline-none focus:border-b"
           onChange={(e) => {
-            setDocumentName(e.currentTarget.value);
+            setTextboxValue(e.currentTarget.value);
           }}
           onKeyDown={(e) => {
             if (e.code === "Enter") {
               dispatch(
-                updateDocumentMetadata({
-                  id: documentId,
-                  data: { ...documentMeta, documentName: documentName },
+                updateDocumentName({
+                  documentName: textboxValue,
                 })
               );
             }

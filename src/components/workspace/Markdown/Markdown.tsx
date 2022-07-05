@@ -13,13 +13,10 @@ type Props = {
 };
 
 function Markdown({ viewToggler }: Props) {
-  const { documentId, documentContent } = useSelector((state: RootState) => {
-    return {
-      documentId: state.metadata.activeDocumentId,
-      documentContent:
-        state.metadata.documentContentMap[state.metadata.activeDocumentId],
-    };
-  });
+  const documentContent = useSelector(
+    (state: RootState) =>
+      state.metadata.documentContentMap[state.metadata.activeDocumentId]
+  );
   const dispatch = useDispatch();
 
   const [markdownText, setMarkdownText] = useState(documentContent);
@@ -27,11 +24,10 @@ function Markdown({ viewToggler }: Props) {
   useEffect(() => {
     dispatch(
       updateDocumentContent({
-        id: documentId,
         content: markdownText,
       })
     );
-  }, [markdownText]);
+  }, [dispatch, markdownText]);
 
   return (
     <section className={"flex flex-col min-h-full"}>

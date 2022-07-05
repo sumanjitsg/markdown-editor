@@ -56,8 +56,8 @@ export const metadataSlice = createSlice({
       };
 
       const newDocumentContentMap = {
-        [newDocumentId]: "",
         ...state.documentContentMap,
+        [newDocumentId]: "",
       };
 
       const newDocumentIdList = [newDocumentId, ...state.documentIdList];
@@ -69,56 +69,48 @@ export const metadataSlice = createSlice({
         documentIdList: newDocumentIdList,
       };
     },
-    updateDocumentMetadata: (
+    updateDocumentName: (
       state,
       action: {
         payload: {
-          id: number;
           // todo: define data type above, used in state type as well
-          data: { documentName: string; createdOn: string };
+          documentName: string;
         };
       }
     ) => {
-      // if document id exists
-      if (state.documentMap[action.payload.id] !== undefined) {
-        return {
-          ...state,
-          documentMap: {
-            ...state.documentMap,
-            [action.payload.id]: action.payload.data,
+      return {
+        ...state,
+        documentMap: {
+          ...state.documentMap,
+          [state.activeDocumentId]: {
+            ...state.documentMap[state.activeDocumentId],
+            documentName: action.payload.documentName,
           },
-        };
-      } else {
-        return state;
-      }
+        },
+      };
     },
     updateDocumentContent: (
       state,
       action: {
         payload: {
-          id: number;
           content: string;
         };
       }
     ) => {
-      if (state.documentContentMap[action.payload.id] !== undefined) {
-        return {
-          ...state,
-          documentContentMap: {
-            ...state.documentContentMap,
-            [action.payload.id]: action.payload.content,
-          },
-        };
-      } else {
-        return state;
-      }
+      return {
+        ...state,
+        documentContentMap: {
+          ...state.documentContentMap,
+          [state.activeDocumentId]: action.payload.content,
+        },
+      };
     },
-    deleteDocument: (state, action: { payload: { id: number } }) => {
-      const { [action.payload.id]: deletedDocument, ...newDocumentMap } =
+    deleteActiveDocument: (state) => {
+      const { [state.activeDocumentId]: deletedDocument, ...newDocumentMap } =
         state.documentMap;
 
       const {
-        [action.payload.id]: deletedDocumentContent,
+        [state.activeDocumentId]: deletedDocumentContent,
         ...newDocumentContentMap
       } = state.documentContentMap;
 
@@ -127,7 +119,7 @@ export const metadataSlice = createSlice({
         documentMap: newDocumentMap,
         documentContentMap: newDocumentContentMap,
         documentIdList: state.documentIdList.filter(
-          (id) => id !== action.payload.id
+          (id) => id !== state.activeDocumentId
         ),
       };
     },
@@ -139,9 +131,9 @@ export const metadataSlice = createSlice({
 
 export const {
   createDocument,
-  updateDocumentMetadata,
+  updateDocumentName,
   updateDocumentContent,
-  deleteDocument,
+  deleteActiveDocument,
   changeActiveDocument,
 } = metadataSlice.actions;
 export default metadataSlice.reducer;

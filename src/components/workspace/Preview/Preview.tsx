@@ -14,18 +14,16 @@ type Props = {
 };
 
 function Preview({ viewToggler }: Props) {
-  const { documentContent } = useSelector((state: RootState) => {
-    return {
-      documentContent:
-        state.metadata.documentContentMap[state.metadata.activeDocumentId],
-    };
-  });
+  const documentContent = useSelector(
+    (state: RootState) =>
+      state.metadata.documentContentMap[state.metadata.activeDocumentId]
+  );
 
   const [previewContent, setPreviewContent] = useRemark();
 
   useEffect(() => {
     setPreviewContent(documentContent);
-  }, [documentContent]);
+  }, [setPreviewContent, documentContent]);
 
   return (
     <section className="flex flex-col min-h-full">
