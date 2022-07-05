@@ -1,9 +1,12 @@
-import { ReactElement, useState } from "react";
+import { lazy, ReactElement, Suspense, useState } from "react";
 
-import Sidebar from "components/Sidebar";
 import Header from "components/Header";
-import ColorThemeSwitch from "components/Sidebar/ColorThemeSwitch";
 import SidebarSwitch from "components/Sidebar/SidebarSwitch";
+
+const Sidebar = lazy(() => import("components/Sidebar"));
+const ColorThemeSwitch = lazy(
+  () => import("components/Sidebar/ColorThemeSwitch")
+);
 
 type Props = {
   workspace: ReactElement;
@@ -23,27 +26,31 @@ function App({ workspace }: Props) {
     >
       {/* sidebar */}
       {/* todo: try switch theme with invert */}
-      <Sidebar
-        expanded={sidebarExpanded}
-        expandSwitch={
-          <SidebarSwitch
-            expanded={sidebarExpanded}
-            onClick={() => {
-              setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
-            }}
-          />
-        }
-        colorThemeSwitch={
-          <ColorThemeSwitch
-            pressed={colorTheme === "light"}
-            onToggle={() =>
-              setColorTheme((colorTheme) =>
-                colorTheme === "dark" ? "light" : "dark"
-              )
-            }
-          />
-        }
-      />
+      <Suspense fallback={null}>
+        <Sidebar
+          expanded={sidebarExpanded}
+          expandSwitch={
+            <SidebarSwitch
+              expanded={sidebarExpanded}
+              onClick={() => {
+                setSidebarExpanded((sidebarExpanded) => !sidebarExpanded);
+              }}
+            />
+          }
+          colorThemeSwitch={
+            <Suspense fallback={null}>
+              <ColorThemeSwitch
+                pressed={colorTheme === "light"}
+                onToggle={() =>
+                  setColorTheme((colorTheme) =>
+                    colorTheme === "dark" ? "light" : "dark"
+                  )
+                }
+              />
+            </Suspense>
+          }
+        />
+      </Suspense>
 
       <div className="flex flex-col min-h-screen">
         {/* header */}
