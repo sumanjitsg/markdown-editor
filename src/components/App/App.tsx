@@ -1,7 +1,7 @@
 import { lazy, ReactElement, Suspense, useState } from "react";
 
 import Header from "components/Header";
-import SidebarSwitch from "components/Sidebar/SidebarSwitch";
+import SidebarSwitch from "components/Header/SidebarSwitch";
 
 const Sidebar = lazy(() => import("components/Sidebar"));
 const ColorThemeSwitch = lazy(

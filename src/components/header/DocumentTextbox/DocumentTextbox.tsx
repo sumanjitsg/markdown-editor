@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import { RootState } from "store";
-import { updateDocumentName } from "features/metadataSlice";
+import { updateDocumentName } from "components/metadataSlice";
 
-function DocumentName() {
+function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id
   const { documentName } = useSelector(
     (state: RootState) =>
@@ -48,4 +48,4 @@ function DocumentName() {
     </div>
   );
 }
-export default DocumentName;
+export default DocumentTextbox;

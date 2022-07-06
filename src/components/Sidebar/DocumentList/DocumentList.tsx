@@ -4,6 +4,7 @@ import type { RootState } from "store";
 import DocumentListItem from "./DocumentListItem";
 
 function DocumentList() {
+  // todo: why doclist re-renders on active doc name update?
   const { documentIdList } = useSelector((state: RootState) => state.metadata);
 
   return (

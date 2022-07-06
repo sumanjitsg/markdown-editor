@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import DocumentName from "./DocumentName";
+import DocumentTextbox from "./DocumentTextbox";
 import DeleteButton from "./DeleteButton";
 import SaveButton from "components/Header/SaveButton";
 
@@ -15,7 +15,7 @@ function Header({ sidebarExpandSwitch }: Props) {
       {sidebarExpandSwitch}
       <div className="grow pl-6 pr-2 flex items-center justify-between bg-gray-800">
         {/* active document name */}
-        <DocumentName />
+        <DocumentTextbox />
 
         <div className="flex items-center gap-x-4">
           {/* delete document button */}
