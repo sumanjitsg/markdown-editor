@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import { RootState } from "store";
-import { updateDocumentName } from "components/metadataSlice";
+import { updateDocumentName } from "features/metadataSlice";
 
 function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id

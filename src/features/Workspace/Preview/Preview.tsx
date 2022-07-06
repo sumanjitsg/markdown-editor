@@ -2,7 +2,7 @@ import { ReactElement, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRemark } from "react-remark";
 
-import Header from "components/Workspace/Header";
+import Header from "features/Workspace/Header";
 
 import styles from "styles/components/Workspace/_preview.module.scss";
 

@@ -1,11 +1,11 @@
 import { lazy, ReactElement, Suspense, useState } from "react";
 
-import Header from "components/Header";
-import SidebarSwitch from "components/Header/SidebarSwitch";
+import Header from "features/Header";
+import SidebarSwitch from "features/Header/SidebarSwitch";
 
-const Sidebar = lazy(() => import("components/Sidebar"));
+const Sidebar = lazy(() => import("features/Sidebar"));
 const ColorThemeSwitch = lazy(
-  () => import("components/Sidebar/ColorThemeSwitch")
+  () => import("features/Sidebar/ColorThemeSwitch")
 );
 
 type Props = {

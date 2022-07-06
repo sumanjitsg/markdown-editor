@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 
 import type { RootState } from "store";
-import { changeActiveDocument } from "components/metadataSlice";
+import { changeActiveDocument } from "features/metadataSlice";
 
 type Props = {
   id: number;

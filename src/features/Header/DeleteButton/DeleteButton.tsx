@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 
 import { ReactComponent as IconDelete } from "assets/icon-delete.svg";
-import { deleteActiveDocument } from "components/metadataSlice";
+import { deleteActiveDocument } from "features/metadataSlice";
 import styles from "styles/components/Header/IconDelete.module.scss";
 
 function DeleteButton() {
