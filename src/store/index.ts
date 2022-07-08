@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import metadataReducer from "components/metadataSlice";
+import metadataReducer from "features/metadataSlice";
 
 export const store = configureStore({
   reducer: {
