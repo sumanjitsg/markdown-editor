@@ -1,28 +1,90 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { v4 as uuidv4 } from 'uuid';
 import { CreateDocumentDto } from './dto/create-document.dto';
 import { UpdateDocumentDto } from './dto/update-document.dto';
+import { IDocument } from './entities/document.entity';
+import { documents } from './data';
 
 @Injectable()
 export class DocumentsService {
-  private documents: CreateDocumentDto[];
+  private documents: IDocument[] = documents;
 
   create(createDocumentDto: CreateDocumentDto) {
-    this.documents.push(createDocumentDto);
+    const documentId = uuidv4();
+    const newDocument = { documentId, ...createDocumentDto };
+
+    this.documents = [...this.documents, newDocument];
+
+    return newDocument;
   }
 
   findAll() {
-    return `This action returns all documents`;
+    return this.documents;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} document`;
+  findOne(id: string) {
+    const index = this.documents.findIndex(
+      (document) => document.documentId === id,
+    );
+
+    if (index !== -1) {
+      return this.documents[index];
+    } else {
+      throw new HttpException(
+        `Document #${id} not found`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
   }
 
-  update(id: number, updateDocumentDto: UpdateDocumentDto) {
-    return `This action updates a #${id} document`;
+  update(id: string, updateDocumentDto: UpdateDocumentDto) {
+    // todo: all properties in updateDTO undefined (validation)
+
+    const index = this.documents.findIndex(
+      (document) => document.documentId === id,
+    );
+
+    if (index === -1) {
+      throw new HttpException(
+        `Document #${id} not found`,
+        HttpStatus.NOT_FOUND,
+      );
+    } else {
+      let updatedDocument: IDocument;
+
+      const documents = this.documents.map((document) =>
+        id !== document.documentId
+          ? document
+          : (updatedDocument = {
+              ...document,
+              // todo: may remove filter after adding controller validation code
+              ...Object.fromEntries(
+                Object.entries(updateDocumentDto).filter(
+                  ([, value]) => value !== undefined,
+                ),
+              ),
+            }),
+      );
+
+      this.documents = documents;
+
+      return updatedDocument;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} document`;
+  remove(id: string) {
+    const documents = this.documents.filter(
+      (document) => document.documentId !== id,
+    );
+
+    if (documents.length === this.documents.length - 1) {
+      this.documents = documents;
+      return `Document #${id} deleted!`;
+    } else {
+      throw new HttpException(
+        `Document #${id} not found`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
   }
 }
