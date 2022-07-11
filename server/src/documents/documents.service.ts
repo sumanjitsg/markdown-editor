@@ -3,13 +3,15 @@ import { CreateDocumentDto } from './dto/create-document.dto';
 import { UpdateDocumentDto } from './dto/update-document.dto';
 
 @Injectable()
-export class DocumentService {
+export class DocumentsService {
+  private documents: CreateDocumentDto[];
+
   create(createDocumentDto: CreateDocumentDto) {
-    return 'This action adds a new document';
+    this.documents.push(createDocumentDto);
   }
 
   findAll() {
-    return `This action returns all document`;
+    return `This action returns all documents`;
   }
 
   findOne(id: number) {
