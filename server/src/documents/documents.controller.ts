@@ -9,6 +9,8 @@ import {
   Res,
   HttpStatus,
   Req,
+  Query,
+  HttpException,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { DocumentsService } from './documents.service';
@@ -37,12 +39,29 @@ export class DocumentsController {
     return this.documentsService.findAll();
   }
 
-  @Get(':id')
+  @Get('id/:id')
   findOne(@Param('id') id: string) {
     return this.documentsService.findOne(id);
   }
 
-  @Patch(':id')
+  @Get('active')
+  findActive() {
+    return this.documentsService.findActive();
+  }
+
+  @Patch('active')
+  updateActive(@Query('id') id: string) {
+    if (id === undefined) {
+      throw new HttpException(
+        'Document id required. e.g. /active?id=123',
+        HttpStatus.BAD_REQUEST,
+      );
+    } else {
+      return this.documentsService.updateActive(id);
+    }
+  }
+
+  @Patch('id/:id')
   update(
     @Param('id') id: string,
     @Body() updateDocumentDto: UpdateDocumentDto,
@@ -50,7 +69,7 @@ export class DocumentsController {
     return this.documentsService.update(id, updateDocumentDto);
   }
 
-  @Delete(':id')
+  @Delete('id/:id')
   remove(@Param('id') id: string) {
     return this.documentsService.remove(id);
   }

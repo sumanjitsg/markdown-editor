@@ -3,11 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { CreateDocumentDto } from './dto/create-document.dto';
 import { UpdateDocumentDto } from './dto/update-document.dto';
 import { IDocument } from './entities/document.entity';
-import { documents } from './data';
+import { documents, activeDocumentId } from './data';
 
 @Injectable()
 export class DocumentsService {
   private documents: IDocument[] = documents;
+  private activeDocumentId: string = activeDocumentId;
 
   create(createDocumentDto: CreateDocumentDto) {
     const documentId = uuidv4();
@@ -34,6 +35,27 @@ export class DocumentsService {
         `Document #${id} not found`,
         HttpStatus.NOT_FOUND,
       );
+    }
+  }
+
+  findActive() {
+    return this.activeDocumentId;
+  }
+
+  updateActive(id: string) {
+    // todo: keeping a separate document map maybe better for searching
+    const index = this.documents.findIndex(
+      (document) => document.documentId === id,
+    );
+
+    if (index === -1) {
+      throw new HttpException(
+        `Document #${id} not found`,
+        HttpStatus.NOT_FOUND,
+      );
+    } else {
+      this.activeDocumentId = id;
+      return { activeDocumentId: this.activeDocumentId };
     }
   }
 

@@ -48,3 +48,5 @@ export const documents: IDocument[] = [
     \`\`\``,
   },
 ];
+
+export const activeDocumentId = documents[1].documentId;
