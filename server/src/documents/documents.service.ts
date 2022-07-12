@@ -39,7 +39,9 @@ export class DocumentsService {
   }
 
   findActive() {
-    return this.activeDocumentId;
+    return this.documents.find(
+      (document) => document.documentId === activeDocumentId,
+    );
   }
 
   updateActive(id: string) {
