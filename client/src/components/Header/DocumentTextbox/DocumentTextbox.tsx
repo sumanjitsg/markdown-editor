@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, ComponentPropsWithoutRef, ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
@@ -7,45 +7,61 @@ import { updateDocumentName } from "components/metadataSlice";
 
 function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id
+  // todo: refactor selector
   const { documentName } = useSelector(
     (state: RootState) =>
       state.metadata.documentMap[state.metadata.activeDocumentId]
   );
   const dispatch = useDispatch();
 
-  const [textboxValue, setTextboxValue] = useState("");
-
-  useEffect(() => {
-    setTextboxValue((textboxValue) => documentName ?? textboxValue);
-  }, [documentName]);
+  // todo: refactor ui state
+  const [inputElementValue, setInputElementValue] = useState(documentName);
 
   return (
+    <InputElement
+      aria-label="Document Name"
+      type="text"
+      size={10}
+      value={inputElementValue}
+      onChange={(event) => {
+        setInputElementValue(event.currentTarget.value);
+      }}
+      onKeyDown={(e) => {
+        if (e.code === "Enter") {
+          dispatch(
+            updateDocumentName({
+              documentName: inputElementValue,
+            })
+          );
+        }
+      }}
+      iconElement={<IconDocument />}
+    />
+  );
+}
+
+interface InputElementProps extends ComponentPropsWithoutRef<"input"> {
+  iconElement?: ReactElement;
+}
+
+function InputElement({
+  iconElement,
+  ...inputElementProps
+}: InputElementProps) {
+  return (
     <div className="flex items-center gap-x-4">
-      <IconDocument />
+      {iconElement}
       <label>
         <div className="font-light text-13px leading-tight text-gray-500 sr-only lg:not-sr-only">
-          Document Name
+          {inputElementProps["aria-label"]}
         </div>
         <input
-          type="text"
-          size={10}
-          value={textboxValue}
+          {...inputElementProps}
           className="bg-gray-800 mt-1 text-15px leading-tight caret-orange-400 hover:border-b focus:outline-none focus:border-b"
-          onChange={(e) => {
-            setTextboxValue(e.currentTarget.value);
-          }}
-          onKeyDown={(e) => {
-            if (e.code === "Enter") {
-              dispatch(
-                updateDocumentName({
-                  documentName: textboxValue,
-                })
-              );
-            }
-          }}
         />
       </label>
     </div>
   );
 }
+
 export default DocumentTextbox;

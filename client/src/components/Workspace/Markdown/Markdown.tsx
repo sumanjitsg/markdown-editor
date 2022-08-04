@@ -31,7 +31,7 @@ function Markdown({ viewToggler }: Props) {
 
   return (
     <section className={"flex flex-col min-h-full"}>
-      <Header headingText="Markdown" viewToggler={viewToggler} />
+      <Header headingText="Markdown" viewToggle={viewToggler} />
 
       <textarea
         aria-label="Markdown editor"

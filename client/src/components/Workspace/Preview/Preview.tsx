@@ -27,7 +27,7 @@ function Preview({ viewToggler }: Props) {
 
   return (
     <section className="flex flex-col min-h-full">
-      <Header headingText="Preview" viewToggler={viewToggler} />
+      <Header headingText="Preview" viewToggle={viewToggler} />
 
       <div
         className={`grow h-0 overflow-auto px-5 py-4 font-roboto-slab font-normal leading-[1.7] ${styles.previewContent}`}
