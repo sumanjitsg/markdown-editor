@@ -1,11 +1,11 @@
 import { ReactElement, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Header from "features/Workspace/Header";
+import Header from "components/Workspace/Header";
 
 import styles from "styles/components/_workspace.module.scss";
 import { RootState } from "store";
-import { updateDocumentContent } from "features/metadataSlice";
+import { updateDocumentContent } from "components/metadataSlice";
 
 // Types
 type Props = {

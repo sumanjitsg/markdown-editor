@@ -2,9 +2,9 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 // Components
-import App from "./features/App";
-import Workspace from "features/Workspace";
-import Splitter from "features/Workspace/Splitter";
+import App from "./components/App";
+import Workspace from "components/Workspace";
+import Splitter from "components/Workspace/Splitter";
 
 import { Provider } from "react-redux";
 import { store } from "store";
