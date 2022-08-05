@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import App from "./App";
+import App from "App";
 import { Provider } from "react-redux";
 import { store } from "store";
 
