@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactElement } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { useDispatch } from "react-redux";
 
 import { ReactComponent as IconDelete } from "assets/icon-delete.svg";
@@ -23,17 +23,12 @@ function DeleteButton() {
 
 interface ButtonElementProps extends ComponentPropsWithoutRef<"button"> {}
 
-function IconButtonElement({
-  children,
-  ...buttonElementProps
-}: ButtonElementProps) {
+function IconButtonElement({ ...buttonElementProps }: ButtonElementProps) {
   return (
     <button
-      className="w-10 h-10 flex items-center justify-center"
       {...buttonElementProps}
-    >
-      {children}
-    </button>
+      className="w-10 h-10 flex items-center justify-center"
+    ></button>
   );
 }
 

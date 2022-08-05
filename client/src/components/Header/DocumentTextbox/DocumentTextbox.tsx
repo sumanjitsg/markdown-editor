@@ -26,11 +26,11 @@ function DocumentTextbox() {
       onChange={(event) => {
         setInputElementValue(event.currentTarget.value);
       }}
-      onKeyDown={(e) => {
-        if (e.code === "Enter") {
+      onKeyDown={(event) => {
+        if (event.code === "Enter") {
           dispatch(
             updateDocumentName({
-              documentName: inputElementValue,
+              documentName: event.target.value,
             })
           );
         }
