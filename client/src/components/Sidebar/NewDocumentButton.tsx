@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { createDocument } from "components/metadataSlice";
+import { createDocument } from "components/documentsSlice";
 
 type Props = {
   focused?: boolean;

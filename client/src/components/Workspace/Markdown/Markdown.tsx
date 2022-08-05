@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "components/Workspace/Header";
 
 import styles from "styles/components/_workspace.module.scss";
-import { RootState } from "store";
-import { updateDocumentContent } from "components/metadataSlice";
+import {
+  selectDocumentContent,
+  selectActiveDocumentId,
+  updateDocumentContent,
+} from "components/documentsSlice";
 
 // Types
 type Props = {
@@ -13,10 +16,8 @@ type Props = {
 };
 
 function Markdown({ viewToggler }: Props) {
-  const documentContent = useSelector(
-    (state: RootState) =>
-      state.metadata.documentContentMap[state.metadata.activeDocumentId]
-  );
+  const activeDocumentId = useSelector(selectActiveDocumentId);
+  const documentContent = useSelector(selectDocumentContent(activeDocumentId));
   const dispatch = useDispatch();
 
   const [textAreaValue, setTextAreaValue] = useState(documentContent);

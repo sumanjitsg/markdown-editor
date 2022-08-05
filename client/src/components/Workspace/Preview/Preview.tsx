@@ -6,7 +6,10 @@ import Header from "components/Workspace/Header";
 
 import styles from "styles/components/Workspace/_preview.module.scss";
 
-import { RootState } from "store";
+import {
+  selectDocumentContent,
+  selectActiveDocumentId,
+} from "components/documentsSlice";
 
 // Types
 type Props = {
@@ -14,10 +17,8 @@ type Props = {
 };
 
 function Preview({ viewToggler }: Props) {
-  const documentContent = useSelector(
-    (state: RootState) =>
-      state.metadata.documentContentMap[state.metadata.activeDocumentId]
-  );
+  const activeDocumentId = useSelector(selectActiveDocumentId);
+  const documentContent = useSelector(selectDocumentContent(activeDocumentId));
 
   const [previewContent, setPreviewContent] = useRemark();
 

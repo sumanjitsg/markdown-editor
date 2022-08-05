@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import metadataReducer from "components/metadataSlice";
+import documentsReducer from "components/documentsSlice";
 
 export const store = configureStore({
   reducer: {
-    metadata: metadataReducer,
+    documents: documentsReducer,
   },
 });
 

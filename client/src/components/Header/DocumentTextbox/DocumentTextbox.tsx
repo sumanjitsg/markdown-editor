@@ -2,15 +2,17 @@ import { useState, ComponentPropsWithoutRef, ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
-import { RootState } from "store";
-import { updateDocumentName } from "components/metadataSlice";
+import {
+  updateDocumentName,
+  selectDocumentMetadata,
+  selectActiveDocumentId,
+} from "components/documentsSlice";
 
 function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id
-  // todo: refactor selector
+  const activeDocumentId = useSelector(selectActiveDocumentId);
   const { documentName } = useSelector(
-    (state: RootState) =>
-      state.metadata.documentMap[state.metadata.activeDocumentId]
+    selectDocumentMetadata(activeDocumentId)
   );
   const dispatch = useDispatch();
 
