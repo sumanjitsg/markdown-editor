@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 
@@ -12,8 +12,10 @@ type Props = {
 };
 
 function DocumentListItem({ id }: Props) {
-  const { documentName, createdOn } = useSelector(selectDocumentMetadata(id));
-  const dispatch = useDispatch();
+  const { documentName, createdOn } = useAppSelector(
+    selectDocumentMetadata(id)
+  );
+  const dispatch = useAppDispatch();
 
   return (
     <li className="flex items-center gap-x-4">

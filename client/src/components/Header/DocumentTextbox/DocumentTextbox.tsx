@@ -1,5 +1,5 @@
 import { useState, ComponentPropsWithoutRef, ReactElement } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import {
@@ -10,11 +10,11 @@ import {
 
 function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id
-  const activeDocumentId = useSelector(selectActiveDocumentId);
-  const { documentName } = useSelector(
+  const activeDocumentId = useAppSelector(selectActiveDocumentId);
+  const { documentName } = useAppSelector(
     selectDocumentMetadata(activeDocumentId)
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // todo: refactor ui state
   const [inputElementValue, setInputElementValue] = useState(documentName);

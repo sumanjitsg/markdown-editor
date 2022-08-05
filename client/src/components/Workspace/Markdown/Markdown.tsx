@@ -1,5 +1,5 @@
 import { ReactElement, useState, ComponentPropsWithoutRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 import Header from "components/Workspace/Header";
 
@@ -16,9 +16,11 @@ type Props = {
 };
 
 function Markdown({ viewToggler }: Props) {
-  const activeDocumentId = useSelector(selectActiveDocumentId);
-  const documentContent = useSelector(selectDocumentContent(activeDocumentId));
-  const dispatch = useDispatch();
+  const activeDocumentId = useAppSelector(selectActiveDocumentId);
+  const documentContent = useAppSelector(
+    selectDocumentContent(activeDocumentId)
+  );
+  const dispatch = useAppDispatch();
 
   const [textAreaValue, setTextAreaValue] = useState(documentContent);
 

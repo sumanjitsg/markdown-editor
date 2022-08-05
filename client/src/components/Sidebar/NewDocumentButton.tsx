@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store/hooks";
 
 import { createDocument } from "components/documentsSlice";
 
@@ -9,7 +9,7 @@ type Props = {
 
 function NewDocumentButton({ focused = false }: Props) {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     // if ref.current updated to button dom node

@@ -1,5 +1,5 @@
 import { ReactElement, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "store/hooks";
 import { useRemark } from "react-remark";
 
 import Header from "components/Workspace/Header";
@@ -17,8 +17,10 @@ type Props = {
 };
 
 function Preview({ viewToggler }: Props) {
-  const activeDocumentId = useSelector(selectActiveDocumentId);
-  const documentContent = useSelector(selectDocumentContent(activeDocumentId));
+  const activeDocumentId = useAppSelector(selectActiveDocumentId);
+  const documentContent = useAppSelector(
+    selectDocumentContent(activeDocumentId)
+  );
 
   const [previewContent, setPreviewContent] = useRemark();
 
