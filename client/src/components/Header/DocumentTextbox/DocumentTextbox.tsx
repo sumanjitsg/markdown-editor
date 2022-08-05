@@ -6,7 +6,7 @@ import {
   updateDocumentName,
   selectDocumentMetadata,
   selectActiveDocumentId,
-} from "components/documentsSlice";
+} from "store/documentsSlice";
 
 function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id

@@ -9,7 +9,7 @@ import styles from "styles/components/Workspace/_preview.module.scss";
 import {
   selectDocumentContent,
   selectActiveDocumentId,
-} from "components/documentsSlice";
+} from "store/documentsSlice";
 
 // Types
 type Props = {

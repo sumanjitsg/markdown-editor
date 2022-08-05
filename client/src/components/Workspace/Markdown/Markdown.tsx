@@ -8,7 +8,7 @@ import {
   selectDocumentContent,
   selectActiveDocumentId,
   updateDocumentContent,
-} from "components/documentsSlice";
+} from "store/documentsSlice";
 
 // Types
 type Props = {

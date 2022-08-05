@@ -5,7 +5,7 @@ import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import {
   changeActiveDocument,
   selectDocumentMetadata,
-} from "components/documentsSlice";
+} from "store/documentsSlice";
 
 type Props = {
   id: number;

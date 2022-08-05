@@ -1,7 +1,7 @@
 import { useAppSelector } from "store/hooks";
 
 import DocumentListItem from "./DocumentListItem";
-import { selectAllIdsList } from "components/documentsSlice";
+import { selectAllIdsList } from "store/documentsSlice";
 
 function DocumentList() {
   // todo: why doclist re-renders on active doc name update?
