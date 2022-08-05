@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar";
 import { Provider } from "react-redux";
 import { store } from "store";
 
