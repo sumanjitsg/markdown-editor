@@ -1,4 +1,4 @@
-import { lazy, ReactElement, Suspense, useState, useEffect } from "react";
+import { lazy, ReactElement, Suspense, useState } from "react";
 
 import Header from "components/Header";
 import SidebarSwitch from "components/Header/SidebarSwitch";

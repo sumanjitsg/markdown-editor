@@ -14,7 +14,9 @@ function Sidebar({ expanded, colorThemeSwitch }: Props) {
   return (
     <aside
       data-testid="sidebar"
-      className={`px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col gap-y-2 w-64 -translate-x-64`}
+      className={`px-6 py-7 bg-gray-900 fixed min-h-full flex flex-col gap-y-2 w-64 -translate-x-64 ${
+        !expanded ? "invisible" : ""
+      }`}
     >
       <div className={`grow ${!expanded ? "invisible" : ""}`}>
         <h1 className="uppercase font-commissioner font-bold text-15px leading-tight tracking-[.33em]">
@@ -22,7 +24,7 @@ function Sidebar({ expanded, colorThemeSwitch }: Props) {
         </h1>
 
         <h2
-          id="myDocumentsText"
+          id="my-documents-label"
           className="uppercase font-roboto font-medium leading-tight text-gray-500 mt-7"
         >
           My Documents

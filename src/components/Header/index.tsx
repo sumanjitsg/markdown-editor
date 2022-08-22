@@ -10,7 +10,7 @@ type Props = {
 
 function Header({ sidebarExpandSwitch }: Props) {
   return (
-    <header className="flex h-16">
+    <header data-testid="header" className="flex h-16">
       {/* Sidebar expand switch */}
       {sidebarExpandSwitch}
       <div className="grow pl-6 pr-2 flex items-center justify-between bg-gray-800">

@@ -8,7 +8,7 @@ function DocumentList() {
   const documentIdList = useAppSelector(selectAllIdsList);
 
   return (
-    <ul aria-labelledby="myDocumentsText" className="mt-6 space-y-6">
+    <ul aria-labelledby="my-documents-label" className="mt-6 space-y-6">
       {documentIdList.map((documentId) => (
         <DocumentListItem id={documentId} key={documentId} />
       ))}
