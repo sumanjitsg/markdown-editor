@@ -17,13 +17,6 @@ function App({ workspace }: Props) {
 
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
-  // todo: isLoaded to prevent redundant fetch on initial re-renders
-  useEffect(() => {
-    fetch("http://localhost:3000/documents")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
-
   return (
     <div
       data-testid="app"
