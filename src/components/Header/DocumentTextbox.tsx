@@ -1,23 +1,35 @@
-import { useState, ComponentPropsWithoutRef, ReactElement } from "react";
+import {
+  useState,
+  ComponentPropsWithoutRef,
+  ReactElement,
+  useEffect,
+} from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 
 import { ReactComponent as IconDocument } from "assets/icon-document.svg";
 import {
   updateDocumentName,
-  selectDocumentMetadata,
-  selectActiveDocumentId,
+  selectActiveDocumentMetadata,
 } from "store/documentsSlice";
 
 function DocumentTextbox() {
   // todo: documentMap[id] can be undefined for current doc id
-  const activeDocumentId = useAppSelector(selectActiveDocumentId);
-  const { documentName } = useAppSelector(
-    selectDocumentMetadata(activeDocumentId)
-  );
+  const { activeId, metadata } = useAppSelector(selectActiveDocumentMetadata);
+
   const dispatch = useAppDispatch();
 
   // todo: refactor ui state
-  const [inputElementValue, setInputElementValue] = useState(documentName);
+  const [inputElementValue, setInputElementValue] = useState(
+    metadata?.documentName
+  );
+
+  useEffect(() => {
+    setInputElementValue(metadata?.documentName);
+  }, [metadata]);
+
+  if (activeId === null) {
+    return null;
+  }
 
   return (
     <InputElement

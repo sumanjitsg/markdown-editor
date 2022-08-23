@@ -1,16 +1,22 @@
 import { ComponentPropsWithoutRef } from "react";
-import { useAppDispatch } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 import { ReactComponent as IconDelete } from "assets/icon-delete.svg";
-import { deleteActiveDocument } from "store/documentsSlice";
+import {
+  deleteActiveDocument,
+  selectActiveDocumentId,
+} from "store/documentsSlice";
 import styles from "styles/components/Header/IconDelete.module.scss";
 
 function DeleteButton() {
   // todo: documentMap[id] can be undefined for current doc id
+  const activeId = useAppSelector(selectActiveDocumentId);
+
   const dispatch = useAppDispatch();
 
   return (
     <IconButtonElement
+      disabled={activeId === -1}
       aria-label="Delete active document"
       onClick={() => {
         dispatch(deleteActiveDocument());

@@ -1,4 +1,5 @@
-.iconDelete {
+.iconDelete,
+button:disabled .iconDelete {
   fill: var(--color-gray-500);
 }
 

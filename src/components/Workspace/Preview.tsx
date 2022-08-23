@@ -6,10 +6,7 @@ import Header from "components/Workspace/Header";
 
 import styles from "styles/components/Workspace/_preview.module.scss";
 
-import {
-  selectDocumentContent,
-  selectActiveDocumentId,
-} from "store/documentsSlice";
+import { selectActiveDocumentContent } from "store/documentsSlice";
 
 // Types
 type Props = {
@@ -17,16 +14,13 @@ type Props = {
 };
 
 function Preview({ viewToggler }: Props) {
-  const activeDocumentId = useAppSelector(selectActiveDocumentId);
-  const documentContent = useAppSelector(
-    selectDocumentContent(activeDocumentId)
-  );
+  const { content } = useAppSelector(selectActiveDocumentContent);
 
   const [previewContent, setPreviewContent] = useRemark();
 
   useEffect(() => {
-    setPreviewContent(documentContent);
-  }, [setPreviewContent, documentContent]);
+    setPreviewContent(content ?? "");
+  }, [setPreviewContent, content]);
 
   return (
     <section className="flex flex-col min-h-full">

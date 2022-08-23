@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "store";
+import { data } from "data";
 
-type Document = {
+type DocumentMetadata = {
   documentName: string;
   createdOn: string;
+};
+
+type DocumentContent = {
   content: string;
 };
+
+type Document = DocumentMetadata & DocumentContent;
 
 type Documents = {
   byId: {
@@ -18,14 +24,14 @@ type Documents = {
 const initialDocuments: Documents = {
   byId: {
     1: {
-      documentName: "untitled-document.md",
-      createdOn: "01-April-2022",
-      content: "",
+      documentName: data[0].name,
+      createdOn: data[0].createdAt,
+      content: data[0].content,
     },
     2: {
-      documentName: "welcome.md",
-      createdOn: "01-April-2022",
-      content: "",
+      documentName: data[1].name,
+      createdOn: data[1].createdAt,
+      content: data[1].content,
     },
   },
   activeId: 2,
@@ -113,6 +119,7 @@ export const documentsSlice = createSlice({
     deleteActiveDocument: (documents) => {
       const { [documents.activeId]: deleted, ...documentsbyId } =
         documents.byId;
+
       const allDocumentIds = documents.allIds.filter(
         (id) => id !== documents.activeId
       );
@@ -121,6 +128,7 @@ export const documentsSlice = createSlice({
         ...documents,
         byId: documentsbyId,
         allIds: allDocumentIds,
+        activeId: -1,
       };
 
       return newDocuments;
@@ -156,8 +164,33 @@ export const selectDocumentMetadata = (id: number) => (state: RootState) => {
   return metadata;
 };
 
+export const selectActiveDocumentMetadata = (
+  state: RootState
+): { activeId: number | null; metadata: DocumentMetadata | null } => {
+  const activeId = state.documents.activeId;
+
+  if (activeId !== -1) {
+    const { content, ...metadata } = state.documents.byId[activeId];
+    return { activeId, metadata };
+  }
+
+  return { activeId: null, metadata: null };
+};
+
 export const selectDocumentContent = (id: number) => (state: RootState) =>
   state.documents.byId[id].content;
+
+export const selectActiveDocumentContent = (
+  state: RootState
+): { activeId: number | null; content: string | null } => {
+  const activeId = selectActiveDocumentId(state);
+
+  if (activeId !== -1) {
+    return { activeId, content: selectDocumentContent(activeId)(state) };
+  }
+
+  return { activeId: null, content: null };
+};
 
 export const selectAllIdsList = (state: RootState) => state.documents.allIds;
 
