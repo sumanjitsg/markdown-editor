@@ -30,6 +30,7 @@ function Markdown({ viewToggler }: Props) {
       <TextAreaElement
         aria-label="Markdown editor"
         spellCheck="false"
+        value={textAreaValue}
         onChange={(event) => {
           setTextAreaValue(event.currentTarget.value);
           dispatch(
@@ -38,9 +39,7 @@ function Markdown({ viewToggler }: Props) {
             })
           );
         }}
-      >
-        {textAreaValue}
-      </TextAreaElement>
+      />
     </section>
   );
 }
