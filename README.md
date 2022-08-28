@@ -1,3 +1,5 @@
+[![CI](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml)
+
 # Frontend Mentor - In-browser markdown editor
 
 ![Design preview for the In-browser markdown editor coding challenge](./design/preview.jpg)
