@@ -36,3 +36,5 @@ Users should be able to:
 - Redux Toolkit
 - Tailwind CSS
 - SCSS
+- Jest
+- React Testing Library
