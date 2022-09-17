@@ -11,7 +11,6 @@ import styles from "styles/components/Header/IconDelete.module.scss";
 function DeleteButton() {
   // todo: documentMap[id] can be undefined for current doc id
   const activeId = useAppSelector(selectActiveDocumentId);
-
   const dispatch = useAppDispatch();
 
   return (

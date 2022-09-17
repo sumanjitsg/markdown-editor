@@ -156,29 +156,36 @@ export const {
   changeActiveDocument,
 } = documentsSlice.actions;
 
-export const selectActiveDocumentId = (state: RootState) =>
-  state.documents.activeId;
+export const selectActiveDocumentId = ({ documents }: RootState) =>
+  documents.activeId;
 
-export const selectDocumentMetadata = (id: number) => (state: RootState) => {
-  const { content, ...metadata } = state.documents.byId[id];
-  return metadata;
-};
+export const selectDocumentMetadata =
+  (id: number) =>
+  ({ documents }: RootState) => {
+    const { content, ...metadata } = documents.byId[id];
+    return metadata;
+  };
 
-export const selectActiveDocumentMetadata = (
-  state: RootState
-): { activeId: number | null; metadata: DocumentMetadata | null } => {
-  const activeId = state.documents.activeId;
+export const selectActiveDocumentMetadata = ({
+  documents,
+}: RootState): {
+  activeId: number | null;
+  metadata: DocumentMetadata | null;
+} => {
+  const activeId = documents.activeId;
 
   if (activeId !== -1) {
-    const { content, ...metadata } = state.documents.byId[activeId];
+    const { content, ...metadata } = documents.byId[activeId];
     return { activeId, metadata };
   }
 
   return { activeId: null, metadata: null };
 };
 
-export const selectDocumentContent = (id: number) => (state: RootState) =>
-  state.documents.byId[id].content;
+export const selectDocumentContent =
+  (id: number) =>
+  ({ documents }: RootState) =>
+    documents.byId[id].content;
 
 export const selectActiveDocumentContent = (
   state: RootState
@@ -192,6 +199,6 @@ export const selectActiveDocumentContent = (
   return { activeId: null, content: null };
 };
 
-export const selectAllIdsList = (state: RootState) => state.documents.allIds;
+export const selectAllIdsList = ({ documents }: RootState) => documents.allIds;
 
 export default documentsSlice.reducer;
