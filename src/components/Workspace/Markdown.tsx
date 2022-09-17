@@ -27,7 +27,7 @@ function Markdown({ viewToggler }: Props) {
   const [textAreaValue, setTextAreaValue] = useState(content ?? undefined);
 
   useEffect(() => {
-    setTextAreaValue(content ?? undefined);
+    setTextAreaValue(content ?? "");
   }, [content]);
 
   return (
