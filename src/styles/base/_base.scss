@@ -23,8 +23,8 @@ body {
   --text-body: var(--color-gray-400);
   --bg-splitter: var(--color-gray-500);
 
-  --bg-codeblock: var(--color-gray-800);
-  --text-codeblock: var(--color-gray-100);
+  --bg-blockquote: var(--color-gray-800);
+  --text-blockquote: var(--color-gray-100);
 
   // for sidebar transform
   overflow-x: hidden;
@@ -37,8 +37,8 @@ body {
   --text-primary: var(--color-gray-700);
   --text-body: var(--color-gray-500);
   --bg-splitter: var(--color-gray-300);
-  --bg-codeblock: var(--color-gray-200);
-  --text-codeblock: var(--color-gray-700);
+  --bg-blockquote: var(--color-gray-200);
+  --text-blockquote: var(--color-gray-700);
 }
 
 svg {

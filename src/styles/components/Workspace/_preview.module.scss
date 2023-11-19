@@ -74,8 +74,8 @@
 
 .previewContent blockquote,
 pre {
-  background-color: var(--bg-codeblock);
-  color: var(--text-codeblock);
+  background-color: var(--bg-blockquote);
+  color: var(--text-blockquote);
   padding: calc(25 / var(--to-rem));
   border-radius: calc(4 / var(--to-rem));
 }
