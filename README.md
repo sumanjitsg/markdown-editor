@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: https://markdown-editor-ssg.netlify.app/
+- Live Site URL: https://ssg-markdown-editor.netlify.app/
 
 ## Built with
 
