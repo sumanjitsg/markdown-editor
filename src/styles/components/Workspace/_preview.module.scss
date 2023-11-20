@@ -11,7 +11,7 @@
   color: var(--text-primary);
 }
 
-.previewContent :where(h1, h3, h4, h5, blockquote) {
+.previewContent :where(h1, h2, h3, h4, h5, blockquote) {
   font-weight: 700;
 }
 
@@ -20,7 +20,6 @@
 }
 
 .previewContent h2 {
-  font-weight: 300;
   font-size: calc(28 / var(--to-rem));
 }
 
@@ -74,7 +73,8 @@
 
 .previewContent blockquote,
 pre {
-  background-color: var(--color-gray-800);
+  background-color: var(--bg-blockquote);
+  color: var(--text-blockquote);
   padding: calc(25 / var(--to-rem));
   border-radius: calc(4 / var(--to-rem));
 }
