@@ -1,4 +1,5 @@
 [![CI](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml)
+[![visit project roadmap](https://img.shields.io/badge/visit%20project%20roadmap-blue?style=flat)](https://github.com/users/sumanjitsg/projects/1)
 
 # Frontend Mentor - In-browser Markdown Editor
 
