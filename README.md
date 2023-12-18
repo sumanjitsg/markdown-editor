@@ -1,7 +1,10 @@
-[![CI](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml)
-[![visit project roadmap](https://img.shields.io/badge/visit%20project%20roadmap-blue?style=flat)](https://github.com/users/sumanjitsg/projects/1)
-
 # Frontend Mentor - In-browser Markdown Editor
+
+[![CI](https://img.shields.io/github/actions/workflow/status/sumanjitsg/markdown-editor/ci.yml?style=for-the-badge&logo=github
+)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml)
+[![visit project roadmap](https://img.shields.io/badge/visit%20project%20roadmap-blue?style=for-the-badge)](https://github.com/users/sumanjitsg/projects/1)
+[![License](https://img.shields.io/github/license/sumanjitsg/markdown-editor?style=for-the-badge&label=License
+)](https://github.com/sumanjitsg/markdown-editor/blob/main/LICENSE)
 
 ![Design preview for the In-browser markdown editor coding challenge](./design/preview.jpg)
 
