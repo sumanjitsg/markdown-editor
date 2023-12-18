@@ -1,10 +1,15 @@
 # Frontend Mentor - In-browser Markdown Editor
 
-[![CI](https://img.shields.io/github/actions/workflow/status/sumanjitsg/markdown-editor/ci.yml?style=for-the-badge&logo=github
-)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml)
-[![visit project roadmap](https://img.shields.io/badge/visit%20project%20roadmap-blue?style=for-the-badge)](https://github.com/users/sumanjitsg/projects/1)
-[![License](https://img.shields.io/github/license/sumanjitsg/markdown-editor?style=for-the-badge&label=License
+[![Netlify Status](https://api.netlify.com/api/v1/badges/deb20313-15ec-470f-83b6-31e57f7f50cd/deploy-status)](https://ssg-markdown-editor.netlify.app/)
+[![CI](https://img.shields.io/github/actions/workflow/status/sumanjitsg/markdown-editor/ci.yml?style=flat&logo=github&label=CI)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci.yml)
+
+[![License](https://img.shields.io/github/license/sumanjitsg/markdown-editor?color=ED8B00&style=flat&label=License
 )](https://github.com/sumanjitsg/markdown-editor/blob/main/LICENSE)
+[![Visit Project Roadmap](https://img.shields.io/badge/Project%20Roadmap-blue?style=flat&label=Visit&color=4285F4
+)](https://github.com/users/sumanjitsg/projects/1)
+
+[![Tested With Jest](https://img.shields.io/badge/Jest-gray?style=flat&logo=jest&logoColor=white&label=Tested%20with&labelColor=gray&color=99424f)](https://github.com/jestjs/jest)
+
 
 ![Design preview for the In-browser markdown editor coding challenge](./design/preview.jpg)
 
