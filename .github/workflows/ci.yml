@@ -1,6 +1,6 @@
 # TODO: add actionlint
 
-name: Continuous Integration
+name: CI (pre-merge)
 
 on:
   pull_request:
