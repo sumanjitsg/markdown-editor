@@ -2,23 +2,41 @@ name: CI
 
 # todo: add lints.
 # todo: add tests. tests may not require build. install dependencies and start tests.
+# Add actionlint to CI.
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - "README.md"
+  pull_request:
+    branches: main
+    paths-ignore: "**.md"
 
 jobs:
-  build:
+  validate:
+    name: Validate Pull Request
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout Pull Request
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Setup Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
         run: npm ci
 
       - name: Build 👷
         run: npm run build
+
+      - name: Run Tests
+        run: npm test
