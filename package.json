@@ -2,6 +2,10 @@
     "name": "markdown-editor",
     "version": "0.1.0",
     "private": true,
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.5.0"
+    },
     "dependencies": {
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
