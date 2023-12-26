@@ -1,6 +1,6 @@
 # TODO: add actionlint
 
-name: CI (pre-merge)
+name: CI (pull-request)
 
 on:
   pull_request:
