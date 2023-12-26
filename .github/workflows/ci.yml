@@ -1,8 +1,6 @@
-name: CI
+# TODO: add actionlint
 
-# todo: add lints.
-# todo: add tests. tests may not require build. install dependencies and start tests.
-# Add actionlint to CI.
+name: Continuous Integration
 
 on:
   pull_request:
@@ -10,8 +8,8 @@ on:
     paths-ignore: "**.md"
 
 jobs:
-  validate:
-    name: Validate Pull Request
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Pull Request
@@ -35,8 +33,62 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build 👷
+      - name: Run Linters
+        run: npm run lint
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pull Request
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Setup Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
         run: npm run build
 
-      - name: Run Tests
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pull Request
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Setup Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run tests
         run: npm test
