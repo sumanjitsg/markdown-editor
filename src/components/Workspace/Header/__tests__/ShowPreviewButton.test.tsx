@@ -1,6 +1,6 @@
-import ShowPreviewButton from "../ShowPreviewButton";
+import ShowPreviewButton from '../ShowPreviewButton';
 
-describe("Show preview button", () => {
-  test.todo("should be a /accessible name/ button");
-  test.todo("click event should call handler once");
+describe('Show preview button', () => {
+    test.todo('should be a /accessible name/ button');
+    test.todo('click event should call handler once');
 });

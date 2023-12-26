@@ -1,38 +1,38 @@
-import { ReactElement, useEffect } from "react";
-import { useAppSelector } from "store/hooks";
-import { useRemark } from "react-remark";
+import { ReactElement, useEffect } from 'react';
+import { useAppSelector } from 'store/hooks';
+import { useRemark } from 'react-remark';
 
-import Header from "components/Workspace/Header";
+import Header from 'components/Workspace/Header';
 
-import styles from "styles/components/Workspace/_preview.module.scss";
+import styles from 'styles/components/Workspace/_preview.module.scss';
 
-import { selectActiveDocumentContent } from "store/documentsSlice";
+import { selectActiveDocumentContent } from 'store/documentsSlice';
 
 // Types
 type Props = {
-  viewToggler: ReactElement;
+    viewToggler: ReactElement;
 };
 
 function Preview({ viewToggler }: Props) {
-  const { content } = useAppSelector(selectActiveDocumentContent);
+    const { content } = useAppSelector(selectActiveDocumentContent);
 
-  const [previewContent, setPreviewContent] = useRemark();
+    const [previewContent, setPreviewContent] = useRemark();
 
-  useEffect(() => {
-    setPreviewContent(content ?? "");
-  }, [setPreviewContent, content]);
+    useEffect(() => {
+        setPreviewContent(content ?? '');
+    }, [setPreviewContent, content]);
 
-  return (
-    <section className="flex flex-col min-h-full">
-      <Header headingText="Preview" viewToggle={viewToggler} />
+    return (
+        <section className="flex flex-col min-h-full">
+            <Header headingText="Preview" viewToggle={viewToggler} />
 
-      <div
-        className={`grow h-0 overflow-auto px-5 py-4 font-roboto-slab font-normal leading-[1.7] ${styles.previewContent}`}
-      >
-        {previewContent}
-      </div>
-    </section>
-  );
+            <div
+                className={`grow h-0 overflow-auto px-5 py-4 font-roboto-slab font-normal leading-[1.7] ${styles.previewContent}`}
+            >
+                {previewContent}
+            </div>
+        </section>
+    );
 }
 
 export default Preview;

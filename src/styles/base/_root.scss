@@ -1,5 +1,5 @@
-@use "styles/abstracts/color";
+@use 'styles/abstracts/color';
 
 :root {
-  @include color.customProperties();
+    @include color.customProperties();
 }
