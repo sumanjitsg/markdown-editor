@@ -1,63 +1,63 @@
 $colors: (
-  "orange": (
-    "400": hsl(13 75% 58%),
-    "300": hsl(21 86% 67%),
-  ),
-  "gray": (
-    "1000": hsl(225 9% 9%),
-    "900": hsl(216 8% 12%),
-    "800": hsl(220 7% 18%),
-    "700": hsl(216 9% 23%),
-    "600": hsl(216 8% 38%),
-    "500": hsl(213 4% 51%),
-    "400": hsl(222 9% 78%),
-    "300": hsl(0 0% 89%),
-    "200": hsl(0 0% 96%),
-    "100": hsl(0 0% 100%),
-  ),
+    'orange': (
+        '400': hsl(13 75% 58%),
+        '300': hsl(21 86% 67%),
+    ),
+    'gray': (
+        '1000': hsl(225 9% 9%),
+        '900': hsl(216 8% 12%),
+        '800': hsl(220 7% 18%),
+        '700': hsl(216 9% 23%),
+        '600': hsl(216 8% 38%),
+        '500': hsl(213 4% 51%),
+        '400': hsl(222 9% 78%),
+        '300': hsl(0 0% 89%),
+        '200': hsl(0 0% 96%),
+        '100': hsl(0 0% 100%),
+    ),
 );
 
 // Generate CSS custom properties
 @mixin customProperties() {
-  // for each color
-  @each $color, $shades in $colors {
-    /* color-#{$color} */
-    // for each shade
-    @each $shade, $shade-value in $shades {
-      --color-#{$color}-#{$shade}: #{$shade-value};
+    // for each color
+    @each $color, $shades in $colors {
+        /* color-#{$color} */
+        // for each shade
+        @each $shade, $shade-value in $shades {
+            --color-#{$color}-#{$shade}: #{$shade-value};
+        }
     }
-  }
 }
 
 // Generate utility classes from all color shades
 @mixin utilities() {
-  // for each color
-  @each $color, $shades in $colors {
-    // for each shade
-    @each $shade, $shade-value in $shades {
-      // text color
-      /* text-#{$color} utilities */
-      .text-#{$color}-#{$shade} {
-        color: var(--color-#{$color}-#{$shade});
-      }
+    // for each color
+    @each $color, $shades in $colors {
+        // for each shade
+        @each $shade, $shade-value in $shades {
+            // text color
+            /* text-#{$color} utilities */
+            .text-#{$color}-#{$shade} {
+                color: var(--color-#{$color}-#{$shade});
+            }
 
-      // background color
-      /* bg-#{$color} utilities */
-      .bg-#{$color}-#{$shade} {
-        background-color: var(--color-#{$color}-#{$shade});
-      }
+            // background color
+            /* bg-#{$color} utilities */
+            .bg-#{$color}-#{$shade} {
+                background-color: var(--color-#{$color}-#{$shade});
+            }
 
-      // caret color
-      /* caret-#{$color} utilities */
-      .caret-#{$color}-#{$shade} {
-        caret-color: var(--color-#{$color}-#{$shade});
-      }
+            // caret color
+            /* caret-#{$color} utilities */
+            .caret-#{$color}-#{$shade} {
+                caret-color: var(--color-#{$color}-#{$shade});
+            }
 
-      // fill color
-      /* fill-#{$color} utilities */
-      .fill-#{$color}-#{$shade} {
-        fill: var(--color-#{$color}-#{$shade});
-      }
+            // fill color
+            /* fill-#{$color} utilities */
+            .fill-#{$color}-#{$shade} {
+                fill: var(--color-#{$color}-#{$shade});
+            }
+        }
     }
-  }
 }

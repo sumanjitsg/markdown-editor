@@ -1,5 +1,5 @@
-@use "styles/abstracts/color";
+@use 'styles/abstracts/color';
 
 @layer utilities {
-  @include color.utilities();
+    @include color.utilities();
 }

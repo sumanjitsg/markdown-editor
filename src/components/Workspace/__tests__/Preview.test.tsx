@@ -1,16 +1,16 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
 
-import Preview from "../Preview";
-import { Provider } from "react-redux";
-import { store } from "store";
+import Preview from '../Preview';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 
 test('Preview header text "Preview"', () => {
-  render(
-    <Provider store={store}>
-      <Preview viewToggler={<></>} />
-    </Provider>
-  );
+    render(
+        <Provider store={store}>
+            <Preview viewToggler={<></>} />
+        </Provider>
+    );
 
-  const headingPreview = screen.getByRole("heading", { name: /Preview/i });
-  expect(headingPreview).toBeInTheDocument();
+    const headingPreview = screen.getByRole('heading', { name: /Preview/i });
+    expect(headingPreview).toBeInTheDocument();
 });
