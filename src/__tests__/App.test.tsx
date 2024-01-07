@@ -1,9 +1,9 @@
 import { render, screen, within } from '@testing-library/react';
 import user from '@testing-library/user-event';
 
-import App from 'App';
+import App from '@/App';
 import { Provider } from 'react-redux';
-import { setupStore } from 'store';
+import { setupStore } from '@/store';
 
 describe('App', () => {
     test('should have a sidebar expand button within header', () => {

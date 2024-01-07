@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import NewDocumentButton from 'components/Sidebar/NewDocumentButton';
+import NewDocumentButton from '@/components/Sidebar/NewDocumentButton';
 import DocumentList from './DocumentList';
 
 type Props = {

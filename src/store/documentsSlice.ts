@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { RootState } from 'store';
-import { data } from 'data';
+import type { RootState } from '@/store';
+import { data } from '@/data';
 
 type DocumentMetadata = {
     documentName: string;

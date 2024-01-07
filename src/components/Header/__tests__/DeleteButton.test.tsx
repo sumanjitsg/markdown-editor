@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from 'store';
+import { store } from '@/store';
 import DeleteButton from '../DeleteButton';
 
 describe('Active document delete button', () => {

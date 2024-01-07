@@ -1,4 +1,4 @@
-@use 'styles/abstracts/color';
+@use '../abstracts/color';
 
 @layer utilities {
     @include color.utilities();

@@ -1,5 +1,5 @@
-import { ReactComponent as IconMenu } from 'assets/icon-menu.svg';
-import { ReactComponent as IconClose } from 'assets/icon-close.svg';
+import IconMenu from '@/assets/icon-menu.svg?react';
+import IconClose from '@/assets/icon-close.svg?react';
 
 type Props = {
     expanded: boolean;

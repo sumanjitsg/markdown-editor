@@ -4,13 +4,13 @@ import {
     ReactElement,
     useEffect,
 } from 'react';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
-import { ReactComponent as IconDocument } from 'assets/icon-document.svg';
+import IconDocument from '@/assets/icon-document.svg?react';
 import {
     updateDocumentName,
     selectActiveDocumentMetadata,
-} from 'store/documentsSlice';
+} from '@/store/documentsSlice';
 
 function DocumentTextbox() {
     // todo: documentMap[id] can be undefined for current doc id

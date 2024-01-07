@@ -1,12 +1,12 @@
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from '@/store/hooks';
 import {
     selectActiveDocumentContent,
     selectActiveDocumentMetadata,
-} from 'store/documentsSlice';
+} from '@/store/documentsSlice';
 
-import { ReactComponent as IconSave } from 'assets/icon-save.svg';
+import IconSave from '@/assets/icon-save.svg?react';
 
-import styles from 'styles/components/Header/IconSave.module.scss';
+import styles from '@/styles/components/Header/IconSave.module.scss';
 
 function SaveButton() {
     const { activeId, content } = useAppSelector(selectActiveDocumentContent);

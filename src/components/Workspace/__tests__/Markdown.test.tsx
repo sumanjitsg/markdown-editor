@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import Markdown from '../Markdown';
 import { Provider } from 'react-redux';
-import { store } from 'store';
+import { store } from '@/store';
 
 test('Markdown header text "Markdown"', () => {
     render(

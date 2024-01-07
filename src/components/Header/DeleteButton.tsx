@@ -1,12 +1,12 @@
 import { ComponentPropsWithoutRef } from 'react';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
-import { ReactComponent as IconDelete } from 'assets/icon-delete.svg';
+import IconDelete from '@/assets/icon-delete.svg?react';
 import {
     deleteActiveDocument,
     selectActiveDocumentId,
-} from 'store/documentsSlice';
-import styles from 'styles/components/Header/IconDelete.module.scss';
+} from '@/store/documentsSlice';
+import styles from '@/styles/components/Header/IconDelete.module.scss';
 
 function DeleteButton() {
     // todo: documentMap[id] can be undefined for current doc id

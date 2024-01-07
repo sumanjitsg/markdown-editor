@@ -3,11 +3,11 @@ import { createRoot } from 'react-dom/client';
 
 // Components
 import App from './App';
-import Workspace from 'components/Workspace';
-import Splitter from 'components/Workspace/Splitter';
+import Workspace from '@/components/Workspace';
+import Splitter from '@/components/Workspace/Splitter';
 
 import { Provider } from 'react-redux';
-import { store } from 'store';
+import { store } from '@/store';
 
 // Styles
 import './styles/index.scss';

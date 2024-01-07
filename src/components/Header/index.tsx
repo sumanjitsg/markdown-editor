@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import DocumentTextbox from './DocumentTextbox';
 import DeleteButton from './DeleteButton';
-import SaveButton from 'components/Header/SaveButton';
+import SaveButton from '@/components/Header/SaveButton';
 
 type Props = {
     sidebarExpandSwitch: ReactElement;

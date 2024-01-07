@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import styles from 'styles/components/_workspace.module.scss';
+import styles from '@/styles/components/_workspace.module.scss';
 
 // Types
 // todo: receive these as children justified between with flex
