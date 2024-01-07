@@ -6,7 +6,7 @@ import {
 
 import IconSave from '@/assets/images/icon-save.svg?react';
 
-import styles from '@/styles/components/Header/IconSave.module.scss';
+import styles from '@/assets/sass/components/Header/IconSave.module.scss';
 
 function SaveButton() {
     const { activeId, content } = useAppSelector(selectActiveDocumentContent);

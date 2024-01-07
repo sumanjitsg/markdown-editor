@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
 import Header from '@/components/Workspace/Header';
 
-import styles from '@/styles/components/_workspace.module.scss';
+import styles from '@/assets/sass/components/_workspace.module.scss';
 import {
     selectActiveDocumentContent,
     updateDocumentContent,

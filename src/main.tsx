@@ -10,9 +10,8 @@ import { Provider } from 'react-redux';
 import { store } from '@/store';
 
 // Styles
-import './styles/index.scss';
+import '@/assets/sass/index.scss';
 
-// todo: avoid ! if possible
 const root = createRoot(document.getElementById('root')!);
 
 root.render(

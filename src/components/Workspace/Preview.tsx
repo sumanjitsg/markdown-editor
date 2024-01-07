@@ -4,7 +4,7 @@ import { useRemark } from 'react-remark';
 
 import Header from '@/components/Workspace/Header';
 
-import styles from '@/styles/components/Workspace/_preview.module.scss';
+import styles from '@/assets/sass/components/Workspace/_preview.module.scss';
 
 import { selectActiveDocumentContent } from '@/store/documentsSlice';
 
