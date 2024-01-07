@@ -1,11 +1,11 @@
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
-import { ReactComponent as IconDocument } from 'assets/icon-document.svg';
+import IconDocument from '@/assets/images/icon-document.svg?react';
 
 import {
     changeActiveDocument,
     selectDocumentMetadata,
-} from 'store/documentsSlice';
+} from '@/store/documentsSlice';
 
 type Props = {
     id: number;

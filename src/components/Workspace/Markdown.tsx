@@ -4,15 +4,15 @@ import {
     useEffect,
     ComponentPropsWithoutRef,
 } from 'react';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
-import Header from 'components/Workspace/Header';
+import Header from '@/components/Workspace/Header';
 
-import styles from 'styles/components/_workspace.module.scss';
+import styles from '@/assets/sass/components/_workspace.module.scss';
 import {
     selectActiveDocumentContent,
     updateDocumentContent,
-} from 'store/documentsSlice';
+} from '@/store/documentsSlice';
 
 // Types
 type Props = {

@@ -1,12 +1,12 @@
 import { ReactElement, useEffect } from 'react';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from '@/store/hooks';
 import { useRemark } from 'react-remark';
 
-import Header from 'components/Workspace/Header';
+import Header from '@/components/Workspace/Header';
 
-import styles from 'styles/components/Workspace/_preview.module.scss';
+import styles from '@/assets/sass/components/Workspace/_preview.module.scss';
 
-import { selectActiveDocumentContent } from 'store/documentsSlice';
+import { selectActiveDocumentContent } from '@/store/documentsSlice';
 
 // Types
 type Props = {

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import Preview from '../Preview';
 import { Provider } from 'react-redux';
-import { store } from 'store';
+import { store } from '@/store';
 
 test('Preview header text "Preview"', () => {
     render(

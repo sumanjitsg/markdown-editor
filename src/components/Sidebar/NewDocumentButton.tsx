@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch } from '@/store/hooks';
 
-import { createDocument } from 'store/documentsSlice';
+import { createDocument } from '@/store/documentsSlice';
 
 type Props = {
     focused?: boolean;

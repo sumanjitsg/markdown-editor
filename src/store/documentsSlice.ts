@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { RootState } from 'store';
-import { data } from 'data';
+import type { RootState } from '@/store';
+import { data } from '@/data';
 
 type DocumentMetadata = {
     documentName: string;
@@ -117,7 +117,7 @@ export const documentsSlice = createSlice({
             return newDocuments;
         },
         deleteActiveDocument: documents => {
-            const { [documents.activeId]: deleted, ...documentsbyId } =
+            const { [documents.activeId]: _deleted, ...documentsbyId } =
                 documents.byId;
 
             const allDocumentIds = documents.allIds.filter(
@@ -162,7 +162,7 @@ export const selectActiveDocumentId = ({ documents }: RootState) =>
 export const selectDocumentMetadata =
     (id: number) =>
     ({ documents }: RootState) => {
-        const { content, ...metadata } = documents.byId[id];
+        const { content: _, ...metadata } = documents.byId[id];
         return metadata;
     };
 
@@ -175,7 +175,7 @@ export const selectActiveDocumentMetadata = ({
     const activeId = documents.activeId;
 
     if (activeId !== -1) {
-        const { content, ...metadata } = documents.byId[activeId];
+        const { content: _, ...metadata } = documents.byId[activeId];
         return { activeId, metadata };
     }
 
