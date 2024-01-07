@@ -117,6 +117,7 @@ export const documentsSlice = createSlice({
             return newDocuments;
         },
         deleteActiveDocument: documents => {
+            // TODO: Fix eslint error
             const { [documents.activeId]: deleted, ...documentsbyId } =
                 documents.byId;
 
@@ -162,6 +163,7 @@ export const selectActiveDocumentId = ({ documents }: RootState) =>
 export const selectDocumentMetadata =
     (id: number) =>
     ({ documents }: RootState) => {
+        // TODO: Fix eslint error
         const { content, ...metadata } = documents.byId[id];
         return metadata;
     };
@@ -175,6 +177,7 @@ export const selectActiveDocumentMetadata = ({
     const activeId = documents.activeId;
 
     if (activeId !== -1) {
+        // TODO: Fix eslint error
         const { content, ...metadata } = documents.byId[activeId];
         return { activeId, metadata };
     }
