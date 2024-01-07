@@ -44,7 +44,7 @@ function DocumentTextbox() {
                 if (event.code === 'Enter') {
                     dispatch(
                         updateDocumentName({
-                            documentName: event.target.value,
+                            documentName: event.currentTarget.value,
                         })
                     );
                 }
