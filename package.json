@@ -15,12 +15,13 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "dev": "npx vite",
-        "build": "npx tsc && vite build",
-        "lint": "npx eslint . --ext js,jsx,ts,tsx --max-warnings 0",
-        "preview": "npx vite preview",
-        "prettier:check": "npx prettier --check .",
-        "prettier:fix": "npx prettier --write ."
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "test": "vitest",
+        "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings 0",
+        "preview": "vite preview",
+        "prettier:check": "prettier --check .",
+        "prettier:fix": "prettier --write ."
     },
     "devDependencies": {
         "@reduxjs/toolkit": "^1.8.2",
@@ -32,6 +33,7 @@
         "@types/react-dom": "^18.0.6",
         "@vitejs/plugin-react-swc": "^3.5.0",
         "autoprefixer": "^10.4.7",
+        "jsdom": "^23.1.0",
         "postcss": "^8.4.14",
         "prettier": "3.1.1",
         "sass": "^1.52.0",
@@ -39,6 +41,7 @@
         "typescript": "^4.6.3",
         "vite": "^5.0.11",
         "vite-plugin-svgr": "^4.2.0",
-        "vite-tsconfig-paths": "^4.2.3"
+        "vite-tsconfig-paths": "^4.2.3",
+        "vitest": "^1.1.3"
     }
 }
