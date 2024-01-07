@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# NOTE: Run chmod +x .husky/pre-commit && git update-index --chmod=+x .husky/pre-commit if not executable
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint-staged
