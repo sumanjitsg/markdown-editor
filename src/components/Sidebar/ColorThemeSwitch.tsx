@@ -1,5 +1,5 @@
-import IconDarkMode from '@/assets/icon-dark-mode.svg?react';
-import IconLightMode from '@/assets/icon-light-mode.svg?react';
+import IconDarkMode from '@/assets/images/icon-dark-mode.svg?react';
+import IconLightMode from '@/assets/images/icon-light-mode.svg?react';
 
 type Props = {
     pressed: boolean;

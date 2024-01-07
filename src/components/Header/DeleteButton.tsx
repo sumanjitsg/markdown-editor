@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
-import IconDelete from '@/assets/icon-delete.svg?react';
+import IconDelete from '@/assets/images/icon-delete.svg?react';
 import {
     deleteActiveDocument,
     selectActiveDocumentId,

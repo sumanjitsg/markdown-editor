@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
-import IconDocument from '@/assets/icon-document.svg?react';
+import IconDocument from '@/assets/images/icon-document.svg?react';
 
 import {
     changeActiveDocument,

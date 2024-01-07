@@ -4,7 +4,7 @@ import {
     selectActiveDocumentMetadata,
 } from '@/store/documentsSlice';
 
-import IconSave from '@/assets/icon-save.svg?react';
+import IconSave from '@/assets/images/icon-save.svg?react';
 
 import styles from '@/styles/components/Header/IconSave.module.scss';
 
