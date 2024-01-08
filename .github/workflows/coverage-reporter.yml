@@ -9,11 +9,11 @@ jobs:
         name: Codacy Coverage Reporter
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout Pull Request
+            - name: Checkout Codebase
               uses: actions/checkout@v3
 
             - name: Run Codacy Coverage Reporter
               uses: codacy/codacy-coverage-reporter-action@v1
               with:
                   project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                  coverage-reports: ./__tests__/coverage/lcov.info
+                  coverage-reports: __tests__/coverage/lcov.info
