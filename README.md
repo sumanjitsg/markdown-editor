@@ -1,6 +1,6 @@
 # Frontend Mentor - In-browser Markdown Editor
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/deb20313-15ec-470f-83b6-31e57f7f50cd/deploy-status)](https://ssg-markdown-editor.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/deb20313-15ec-470f-83b6-31e57f7f50cd/deploy-status)](https://app.netlify.com/sites/ssg-markdown-editor/deploys)
 [![CI](https://img.shields.io/github/actions/workflow/status/sumanjitsg/markdown-editor/ci-pr.yml?style=flat&logo=github&label=CI)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci-pr.yml)
 
 [![Visit Project Roadmap](https://img.shields.io/badge/Project%20Roadmap-blue?style=flat&label=Visit&color=4285F4)](https://github.com/users/sumanjitsg/projects/1)
