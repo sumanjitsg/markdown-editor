@@ -2,11 +2,11 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/deb20313-15ec-470f-83b6-31e57f7f50cd/deploy-status)](https://app.netlify.com/sites/ssg-markdown-editor/deploys)
 [![CI](https://img.shields.io/github/actions/workflow/status/sumanjitsg/markdown-editor/ci-pr.yml?style=flat&logo=github&label=CI)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci-pr.yml)
+[![Codacy Coverage](https://app.codacy.com/project/badge/Coverage/122e56c20f2b473bb7e32b65e1dbe129)](https://app.codacy.com/gh/sumanjitsg/markdown-editor/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Codacy Code Quality](https://app.codacy.com/project/badge/Grade/122e56c20f2b473bb7e32b65e1dbe129)](https://app.codacy.com/gh/sumanjitsg/markdown-editor/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 [![Visit Project Roadmap](https://img.shields.io/badge/Project%20Roadmap-blue?style=flat&label=Visit&color=4285F4)](https://github.com/users/sumanjitsg/projects/1)
 [![License](https://img.shields.io/github/license/sumanjitsg/markdown-editor?color=ED8B00&style=flat&label=License)](https://github.com/sumanjitsg/markdown-editor/blob/main/LICENSE)
-
-[![Tested With Jest](https://img.shields.io/badge/Jest-gray?style=flat&logo=jest&logoColor=white&label=Tested%20with&labelColor=gray&color=99424f)](https://github.com/jestjs/jest)
 
 ![Design preview for the In-browser markdown editor coding challenge](./design/preview.jpg)
 
