@@ -2,6 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/deb20313-15ec-470f-83b6-31e57f7f50cd/deploy-status)](https://app.netlify.com/sites/ssg-markdown-editor/deploys)
 [![CI](https://img.shields.io/github/actions/workflow/status/sumanjitsg/markdown-editor/ci-pr.yml?style=flat&logo=github&label=CI)](https://github.com/sumanjitsg/markdown-editor/actions/workflows/ci-pr.yml)
+
 [![Codacy Coverage](https://app.codacy.com/project/badge/Coverage/122e56c20f2b473bb7e32b65e1dbe129)](https://app.codacy.com/gh/sumanjitsg/markdown-editor/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 [![Codacy Code Quality](https://app.codacy.com/project/badge/Grade/122e56c20f2b473bb7e32b65e1dbe129)](https://app.codacy.com/gh/sumanjitsg/markdown-editor/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
