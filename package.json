@@ -23,6 +23,7 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@supabase/supabase-js": "^2.42.7",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-redux": "^9.0.4",
