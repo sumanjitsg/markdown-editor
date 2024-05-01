@@ -1,4 +1,4 @@
-name: Deploy Migrations to Staging
+name: Deploy Migrations to Stage
 
 on:
     push:
@@ -7,7 +7,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    deploy:
+    migrate:
         runs-on: ubuntu-latest
         environment: stage
 
