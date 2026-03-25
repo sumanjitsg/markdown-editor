@@ -1,6 +1,6 @@
 # TODO: add actionlint
 
-name: CI (pull-request)
+name: CI
 
 on:
     pull_request:
