@@ -45,3 +45,5 @@ Users should be able to:
 -   SCSS
 -   Jest
 -   React Testing Library
+
+This project is tested with BrowserStack
