@@ -1,10 +1,10 @@
-import {
-    ReactElement,
-    useState,
-    useEffect,
-    ComponentPropsWithoutRef,
-} from 'react';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import {
+    type ComponentPropsWithoutRef,
+    type ReactElement,
+    useEffect,
+    useState,
+} from 'react';
 
 import Header from '@/components/Workspace/Header';
 
@@ -52,7 +52,7 @@ function TextAreaElement({ ...textAreaElementProps }: TextAreaElementProps) {
         <textarea
             {...textAreaElementProps}
             className={`w-full grow outline-none resize-none p-4 font-roboto-mono leading-relaxed ${styles.workspace}`}
-        ></textarea>
+        />
     );
 }
 

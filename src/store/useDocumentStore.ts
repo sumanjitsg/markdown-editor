@@ -1,5 +1,5 @@
-import { create } from 'zustand';
 import { seedDocuments } from '@/data';
+import { create } from 'zustand';
 
 type Document = {
     id: string;

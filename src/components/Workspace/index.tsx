@@ -1,9 +1,9 @@
-import { ReactElement, useState } from 'react';
+import { type ReactElement, useState } from 'react';
 
+import HidePreviewButton from './Header/HidePreviewButton';
+import ShowPreviewButton from './Header/ShowPreviewButton';
 import Markdown from './Markdown';
 import Preview from './Preview';
-import ShowPreviewButton from './Header/ShowPreviewButton';
-import HidePreviewButton from './Header/HidePreviewButton';
 
 type Props = {
     splitter: ReactElement;

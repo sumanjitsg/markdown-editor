@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import type { ComponentPropsWithoutRef } from 'react';
 
 import IconDelete from '@/assets/images/icon-delete.svg?react';
 import styles from '@/assets/sass/components/Header/IconDelete.module.scss';
@@ -24,9 +24,10 @@ interface ButtonElementProps extends ComponentPropsWithoutRef<'button'> {}
 function IconButtonElement({ ...buttonElementProps }: ButtonElementProps) {
     return (
         <button
+            type="button"
             {...buttonElementProps}
             className="w-10 h-10 flex items-center justify-center"
-        ></button>
+        />
     );
 }
 

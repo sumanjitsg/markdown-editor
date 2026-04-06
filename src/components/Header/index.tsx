@@ -1,8 +1,8 @@
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
-import DocumentTextbox from './DocumentTextbox';
-import DeleteButton from './DeleteButton';
 import SaveButton from '@/components/Header/SaveButton';
+import DeleteButton from './DeleteButton';
+import DocumentTextbox from './DocumentTextbox';
 
 type Props = {
     sidebarExpandSwitch: ReactElement;

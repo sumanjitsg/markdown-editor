@@ -11,6 +11,7 @@ function ColorThemeSwitch({ pressed, onToggle }: Props) {
         <div className="flex gap-3 items-center">
             <IconDarkMode />
             <button
+                type="button"
                 aria-label={'Color theme'}
                 aria-pressed={pressed}
                 onClick={() => onToggle()}
@@ -19,7 +20,7 @@ function ColorThemeSwitch({ pressed, onToggle }: Props) {
                 <span
                     className={`block w-3 h-3 bg-gray-100 rounded-full relative left-1.5 transition-transform duration-75
         ${pressed === true ? 'translate-x-6' : ''}`}
-                ></span>
+                />
             </button>
             <IconLightMode />
         </div>

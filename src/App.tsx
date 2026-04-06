@@ -1,4 +1,4 @@
-import { lazy, ReactElement, Suspense, useState } from 'react';
+import { type ReactElement, Suspense, lazy, useState } from 'react';
 
 import Header from '@/components/Header';
 import SidebarSwitch from '@/components/Header/SidebarSwitch';
@@ -30,7 +30,7 @@ function App({ workspace }: Props) {
                 <Sidebar
                     expanded={sidebarExpanded}
                     colorThemeSwitch={
-                        <Suspense fallback={<div className="h-6"></div>}>
+                        <Suspense fallback={<div className="h-6" />}>
                             <ColorThemeSwitch
                                 pressed={colorTheme === 'light'}
                                 onToggle={() =>

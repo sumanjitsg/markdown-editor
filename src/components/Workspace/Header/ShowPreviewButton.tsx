@@ -1,5 +1,5 @@
-import IconButtonElement from './IconButtonElement';
 import IconShowPreview from '@/assets/images/icon-show-preview.svg?react';
+import IconButtonElement from './IconButtonElement';
 
 type Props = {
     onClickHandler: () => void;

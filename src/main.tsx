@@ -1,15 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-// Components
-import App from './App';
 import Workspace from '@/components/Workspace';
 import Splitter from '@/components/Workspace/Splitter';
+// Components
+import App from './App';
 
 // Styles
 import '@/assets/sass/index.scss';
 
-const root = createRoot(document.getElementById('root')!);
+const root = createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
     <React.StrictMode>

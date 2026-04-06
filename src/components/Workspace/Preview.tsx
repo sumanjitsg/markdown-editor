@@ -1,5 +1,5 @@
-import { ReactElement, useEffect } from 'react';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import { type ReactElement, useEffect } from 'react';
 import { useRemark } from 'react-remark';
 
 import Header from '@/components/Workspace/Header';

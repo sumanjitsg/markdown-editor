@@ -15,9 +15,12 @@ function SaveButton() {
 
     return (
         <button
+            type="button"
             disabled={current === null}
             aria-label="Download active document"
-            className={`w-10 h-10 flex items-center justify-center rounded bg-orange-400 hover:bg-orange-300 focus:bg-orange-300 disabled:bg-gray-600`}
+            className={
+                'w-10 h-10 flex items-center justify-center rounded bg-orange-400 hover:bg-orange-300 focus:bg-orange-300 disabled:bg-gray-600'
+            }
             onClick={() => {
                 const text = content ?? '';
                 const blob = new Blob([text], { type: 'text/plain' });

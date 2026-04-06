@@ -23,6 +23,7 @@ function DocumentListItem({ id }: Props) {
                     })}
                 </p>
                 <button
+                    type="button"
                     className="mt-1 text-15px leading-tight"
                     onClick={() => open(id)}
                 >

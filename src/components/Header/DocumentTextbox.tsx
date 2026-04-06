@@ -1,10 +1,10 @@
-import {
-    useState,
-    ComponentPropsWithoutRef,
-    ReactElement,
-    useEffect,
-} from 'react';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import {
+    type ComponentPropsWithoutRef,
+    type ReactElement,
+    useEffect,
+    useState,
+} from 'react';
 
 import IconDocument from '@/assets/images/icon-document.svg?react';
 
