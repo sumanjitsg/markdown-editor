@@ -1,34 +1,32 @@
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { useDocumentStore } from '@/store/useDocumentStore';
 
 import IconDocument from '@/assets/images/icon-document.svg?react';
 
-import {
-    changeActiveDocument,
-    selectDocumentMetadata,
-} from '@/store/documentsSlice';
-
 type Props = {
-    id: number;
+    id: string;
 };
 
 function DocumentListItem({ id }: Props) {
-    const { documentName, createdOn } = useAppSelector(
-        selectDocumentMetadata(id)
-    );
-    const dispatch = useAppDispatch();
+    const name = useDocumentStore(s => s.documents[id]?.name);
+    const created = useDocumentStore(s => s.documents[id]?.created);
+    const open = useDocumentStore(s => s.open);
 
     return (
         <li className="flex items-center gap-x-4">
             <IconDocument className="shrink-0" />
             <div>
                 <p className="font-light text-13px leading-tight text-gray-500">
-                    {createdOn}
+                    {created?.toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'long',
+                        year: 'numeric',
+                    })}
                 </p>
                 <button
                     className="mt-1 text-15px leading-tight"
-                    onClick={() => dispatch(changeActiveDocument({ id: id }))}
+                    onClick={() => open(id)}
                 >
-                    {documentName}
+                    {name}
                 </button>
             </div>
         </li>

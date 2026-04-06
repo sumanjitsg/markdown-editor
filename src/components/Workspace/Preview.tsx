@@ -1,12 +1,10 @@
 import { ReactElement, useEffect } from 'react';
-import { useAppSelector } from '@/store/hooks';
+import { useDocumentStore } from '@/store/useDocumentStore';
 import { useRemark } from 'react-remark';
 
 import Header from '@/components/Workspace/Header';
 
 import styles from '@/assets/sass/components/Workspace/_preview.module.scss';
-
-import { selectActiveDocumentContent } from '@/store/documentsSlice';
 
 // Types
 type Props = {
@@ -14,7 +12,9 @@ type Props = {
 };
 
 function Preview({ viewToggler }: Props) {
-    const { content } = useAppSelector(selectActiveDocumentContent);
+    const content = useDocumentStore(s =>
+        s.current ? s.documents[s.current]?.content : null
+    );
 
     const [previewContent, setPreviewContent] = useRemark();
 

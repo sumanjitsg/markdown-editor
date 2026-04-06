@@ -1,6 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from '@/store';
 import Header from '@/components/Header';
 
 describe('Header', () => {
@@ -8,11 +6,7 @@ describe('Header', () => {
     test.todo('should contain a sidebar expand switch');
     test('should contain a document name textbox', () => {
         // render header
-        render(
-            <Provider store={store}>
-                <Header sidebarExpandSwitch={<></>} />
-            </Provider>
-        );
+        render(<Header sidebarExpandSwitch={<></>} />);
 
         // expect textbox to be in document
         expect(
@@ -21,11 +15,7 @@ describe('Header', () => {
     });
     test('should contain a delete button', () => {
         // render header
-        render(
-            <Provider store={store}>
-                <Header sidebarExpandSwitch={<></>} />
-            </Provider>
-        );
+        render(<Header sidebarExpandSwitch={<></>} />);
 
         // expect delete button to be in document
         expect(
@@ -34,11 +24,7 @@ describe('Header', () => {
     });
     test('should contain a download button', () => {
         // render header
-        render(
-            <Provider store={store}>
-                <Header sidebarExpandSwitch={<></>} />
-            </Provider>
-        );
+        render(<Header sidebarExpandSwitch={<></>} />);
 
         // expect download button to be in document
         expect(

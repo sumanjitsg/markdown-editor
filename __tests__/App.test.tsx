@@ -2,18 +2,10 @@ import { render, screen, within } from '@testing-library/react';
 import user from '@testing-library/user-event';
 
 import App from '@/App';
-import { Provider } from 'react-redux';
-import { setupStore } from '@/store';
 
 describe('App', () => {
     test('should have a sidebar expand button within header', () => {
-        const store = setupStore();
-
-        render(
-            <Provider store={store}>
-                <App workspace={<></>} />
-            </Provider>
-        );
+        render(<App workspace={<></>} />);
 
         const header = screen.getByTestId(/header/i);
 
@@ -27,13 +19,7 @@ describe('App', () => {
     test.todo('sidebar expand button should have tab focus on render');
 
     test('sidebar should be invisible on render', async () => {
-        const store = setupStore();
-
-        render(
-            <Provider store={store}>
-                <App workspace={<></>} />
-            </Provider>
-        );
+        render(<App workspace={<></>} />);
 
         const sidebar = await screen.findByTestId(/sidebar/i);
 
@@ -43,14 +29,7 @@ describe('App', () => {
     test.todo('sidebar and its child elements cannot be tab focused on render');
 
     test('clicking sidebar expand button should expand sidebar', async () => {
-        const store = setupStore();
-
-        // render app
-        render(
-            <Provider store={store}>
-                <App workspace={<></>} />
-            </Provider>
-        );
+        render(<App workspace={<></>} />);
 
         // find Sidebar
         // getByTestId won't work because sidebar is loaded lazily
@@ -74,13 +53,7 @@ describe('App', () => {
 
     describe('with Sidebar expanded', () => {
         test("clicking 'New Document' button once adds a new document to the top of 'My Documents' list", async () => {
-            const store = setupStore();
-
-            render(
-                <Provider store={store}>
-                    <App workspace={<></>} />
-                </Provider>
-            );
+            render(<App workspace={<></>} />);
 
             await user.click(
                 screen.getByRole('button', {
@@ -108,13 +81,7 @@ describe('App', () => {
         });
 
         test("clicking 'New Document' button multiple times adds multiple new documents to the top of 'My Documents' list", async () => {
-            const store = setupStore();
-
-            render(
-                <Provider store={store}>
-                    <App workspace={<></>} />
-                </Provider>
-            );
+            render(<App workspace={<></>} />);
 
             await user.click(
                 screen.getByRole('button', {
@@ -174,13 +141,7 @@ describe('App', () => {
     });
 
     test('editing document name in header renames file in sidebar', async () => {
-        const store = setupStore();
-
-        render(
-            <Provider store={store}>
-                <App workspace={<></>} />
-            </Provider>
-        );
+        render(<App workspace={<></>} />);
 
         const header = screen.getByTestId(/header/i);
 

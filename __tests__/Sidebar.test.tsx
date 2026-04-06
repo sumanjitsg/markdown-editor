@@ -1,17 +1,11 @@
 import { render, screen } from '@testing-library/react';
 
 import Sidebar from '@/components/Sidebar';
-import { Provider } from 'react-redux';
-import { store } from '@/store';
 
 describe('Sidebar', () => {
     test('should have a /markdown/ heading text', () => {
         // is expanded = false rendered fine? should it have default value? any implication on availability of child elements in collapsed mode?
-        render(
-            <Provider store={store}>
-                <Sidebar expanded={false} colorThemeSwitch={<></>} />
-            </Provider>
-        );
+        render(<Sidebar expanded={false} colorThemeSwitch={<></>} />);
 
         const headingMarkdown = screen.getByRole('heading', {
             name: /markdown/i,
@@ -20,11 +14,7 @@ describe('Sidebar', () => {
     });
 
     test('should have a /my documents/ heading text', () => {
-        render(
-            <Provider store={store}>
-                <Sidebar expanded={false} colorThemeSwitch={<></>} />
-            </Provider>
-        );
+        render(<Sidebar expanded={false} colorThemeSwitch={<></>} />);
 
         const headingMyDocuments = screen.getByRole('heading', {
             name: /my documents/i,
@@ -33,11 +23,7 @@ describe('Sidebar', () => {
     });
 
     test('should have a /new document/ button', () => {
-        render(
-            <Provider store={store}>
-                <Sidebar expanded={false} colorThemeSwitch={<></>} />
-            </Provider>
-        );
+        render(<Sidebar expanded={false} colorThemeSwitch={<></>} />);
 
         const newDocumentButton = screen.getByRole('button', {
             name: /new document/i,

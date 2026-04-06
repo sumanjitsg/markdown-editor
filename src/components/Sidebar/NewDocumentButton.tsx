@@ -1,7 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { useAppDispatch } from '@/store/hooks';
-
-import { createDocument } from '@/store/documentsSlice';
+import { useDocumentStore } from '@/store/useDocumentStore';
 
 type Props = {
     focused?: boolean;
@@ -9,7 +7,7 @@ type Props = {
 
 function NewDocumentButton({ focused = false }: Props) {
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const dispatch = useAppDispatch();
+    const create = useDocumentStore(s => s.create);
 
     useEffect(() => {
         // if ref.current updated to button dom node
@@ -23,9 +21,7 @@ function NewDocumentButton({ focused = false }: Props) {
         <button
             aria-label="Create new document"
             className="bg-orange-400 py-3 rounded min-w-full text-15px leading-tight text-center"
-            onClick={() => {
-                dispatch(createDocument());
-            }}
+            onClick={create}
             ref={buttonRef}
         >
             + New Document

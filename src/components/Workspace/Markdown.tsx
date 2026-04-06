@@ -4,15 +4,11 @@ import {
     useEffect,
     ComponentPropsWithoutRef,
 } from 'react';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { useDocumentStore } from '@/store/useDocumentStore';
 
 import Header from '@/components/Workspace/Header';
 
 import styles from '@/assets/sass/components/_workspace.module.scss';
-import {
-    selectActiveDocumentContent,
-    updateDocumentContent,
-} from '@/store/documentsSlice';
 
 // Types
 type Props = {
@@ -20,31 +16,29 @@ type Props = {
 };
 
 function Markdown({ viewToggler }: Props) {
-    const { activeId, content } = useAppSelector(selectActiveDocumentContent);
+    const current = useDocumentStore(s => s.current);
+    const content = useDocumentStore(s =>
+        s.current ? s.documents[s.current]?.content : null
+    );
+    const update = useDocumentStore(s => s.update);
 
-    const dispatch = useAppDispatch();
-
-    const [textAreaValue, setTextAreaValue] = useState(content ?? undefined);
+    const [value, setValue] = useState(content ?? undefined);
 
     useEffect(() => {
-        setTextAreaValue(content ?? '');
+        setValue(content ?? '');
     }, [content]);
 
     return (
         <section className={'flex flex-col min-h-full'}>
             <Header headingText="Markdown" viewToggle={viewToggler} />
             <TextAreaElement
-                disabled={activeId === null}
+                disabled={current === null}
                 aria-label="Markdown editor"
                 spellCheck="false"
-                value={textAreaValue}
+                value={value}
                 onChange={event => {
-                    setTextAreaValue(event.currentTarget.value);
-                    dispatch(
-                        updateDocumentContent({
-                            content: event.target.value,
-                        })
-                    );
+                    setValue(event.currentTarget.value);
+                    update({ content: event.target.value });
                 }}
             />
         </section>

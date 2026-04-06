@@ -4,30 +4,24 @@ import {
     ReactElement,
     useEffect,
 } from 'react';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { useDocumentStore } from '@/store/useDocumentStore';
 
 import IconDocument from '@/assets/images/icon-document.svg?react';
-import {
-    updateDocumentName,
-    selectActiveDocumentMetadata,
-} from '@/store/documentsSlice';
 
 function DocumentTextbox() {
-    // todo: documentMap[id] can be undefined for current doc id
-    const { activeId, metadata } = useAppSelector(selectActiveDocumentMetadata);
-
-    const dispatch = useAppDispatch();
-
-    // todo: refactor ui state
-    const [inputElementValue, setInputElementValue] = useState(
-        metadata?.documentName
+    const current = useDocumentStore(s => s.current);
+    const name = useDocumentStore(s =>
+        s.current ? s.documents[s.current]?.name : undefined
     );
+    const update = useDocumentStore(s => s.update);
+
+    const [inputValue, setInputValue] = useState(name);
 
     useEffect(() => {
-        setInputElementValue(metadata?.documentName);
-    }, [metadata]);
+        setInputValue(name);
+    }, [name]);
 
-    if (activeId === null) {
+    if (current === null) {
         return null;
     }
 
@@ -36,17 +30,13 @@ function DocumentTextbox() {
             aria-label="Document Name"
             type="text"
             size={10}
-            value={inputElementValue}
+            value={inputValue}
             onChange={event => {
-                setInputElementValue(event.currentTarget.value);
+                setInputValue(event.currentTarget.value);
             }}
             onKeyDown={event => {
                 if (event.code === 'Enter') {
-                    dispatch(
-                        updateDocumentName({
-                            documentName: event.currentTarget.value,
-                        })
-                    );
+                    update({ name: event.currentTarget.value });
                 }
             }}
             iconElement={<IconDocument />}

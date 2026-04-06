@@ -1,16 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from '@/store';
 import DocumentTextbox from '../DocumentTextbox';
 
 describe('Active document name textbox', () => {
     test('should be a /document name/ textbox', () => {
         // render textbox
-        render(
-            <Provider store={store}>
-                <DocumentTextbox />
-            </Provider>
-        );
+        render(<DocumentTextbox />);
 
         // expect textbox to be in document
         expect(

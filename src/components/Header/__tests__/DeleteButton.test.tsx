@@ -1,16 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from '@/store';
 import DeleteButton from '../DeleteButton';
 
 describe('Active document delete button', () => {
     test('should be a /delete active document/ button', () => {
         // render delete button
-        render(
-            <Provider store={store}>
-                <DeleteButton />
-            </Provider>
-        );
+        render(<DeleteButton />);
 
         // expect delete button to be in document
         expect(
