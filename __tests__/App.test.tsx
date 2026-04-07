@@ -67,7 +67,7 @@ describe('App', () => {
 
             let listItems = within(myDocumentsList).getAllByRole('listitem');
 
-            expect(listItems.length).toEqual(2);
+            expect(listItems.length).toEqual(1);
 
             await user.click(
                 screen.getByRole('button', {
@@ -77,7 +77,7 @@ describe('App', () => {
 
             listItems = within(myDocumentsList).getAllByRole('listitem');
 
-            expect(listItems.length).toEqual(3);
+            expect(listItems.length).toEqual(2);
         });
 
         test("clicking 'New Document' button multiple times adds multiple new documents to the top of 'My Documents' list", async () => {
@@ -94,6 +94,16 @@ describe('App', () => {
             });
 
             let listItems = within(myDocumentsList).getAllByRole('listitem');
+
+            expect(listItems.length).toEqual(1);
+
+            await user.click(
+                screen.getByRole('button', {
+                    name: /new document/i,
+                })
+            );
+
+            listItems = within(myDocumentsList).getAllByRole('listitem');
 
             expect(listItems.length).toEqual(2);
 
@@ -116,16 +126,6 @@ describe('App', () => {
             listItems = within(myDocumentsList).getAllByRole('listitem');
 
             expect(listItems.length).toEqual(4);
-
-            await user.click(
-                screen.getByRole('button', {
-                    name: /new document/i,
-                })
-            );
-
-            listItems = within(myDocumentsList).getAllByRole('listitem');
-
-            expect(listItems.length).toEqual(5);
         });
 
         test.todo(
