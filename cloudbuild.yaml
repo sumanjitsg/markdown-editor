@@ -1,0 +1,26 @@
+steps:
+  - name: node:20
+    entrypoint: npx
+    args: ['pnpm', 'install', '--frozen-lockfile']
+  - name: node:20
+    entrypoint: npx
+    args: ['pnpm', 'run', 'build']
+  - name: gcr.io/cloud-builders/gsutil
+    args: ['-m', 'rsync', '-r', '-d', 'dist/', 'gs://${_BUCKET}/']
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', '${_IMAGE}:latest', 'proxy/']
+  - name: gcr.io/cloud-builders/docker
+    args: ['push', '${_IMAGE}:latest']
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    args: ['gcloud', 'run', 'services', 'update', '${_SERVICE}', '--region=us-central1', '--image=${_IMAGE}:latest']
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        gcloud artifacts docker images list-tags ${_IMAGE} --filter="NOT tags:latest" --format="get(digest)" --quiet | while read digest; do
+          gcloud artifacts docker images delete "${_IMAGE}@$${digest}" --quiet --delete-tags 2>/dev/null || true
+        done
+
+options:
+  logging: CLOUD_LOGGING_ONLY
