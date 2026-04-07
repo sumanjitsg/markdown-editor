@@ -1,0 +1,3 @@
+config:
+  gcp:project: integral-kiln-492612-k5
+  gcp:region: us-central1

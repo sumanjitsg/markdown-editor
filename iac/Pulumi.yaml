@@ -1,0 +1,10 @@
+name: markdown-editor
+description: IaC for static hosting with Google Cloud
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: gcp-typescript
