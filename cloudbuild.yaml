@@ -18,7 +18,7 @@ steps:
     args:
       - -c
       - |
-        gcloud artifacts docker images list ${_IMAGE} --include-tags --filter="tags!=latest" --format="get(digest)" --quiet | while read digest; do
+        gcloud artifacts docker images list ${_IMAGE} --include-tags --format="get(digest,tags)" --quiet | grep -v "latest" | awk '{print $1}' | while read digest; do
           gcloud artifacts docker images delete "${_IMAGE}@$${digest}" --quiet --delete-tags 2>/dev/null || true
         done
 
